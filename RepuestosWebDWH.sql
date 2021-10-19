@@ -55,15 +55,15 @@ DECLARE @EliminarDB BIT = 1;
 	--Tablas Dimensiones
 		--DIMENSION FECHA
 		CREATE TABLE Dimension.Fecha (
-			DateKey INT PRIMARY KEY,
+			DateKey [UDT_PK] PRIMARY KEY,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] DATETIME NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] DATETIME NULL,
+			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] [UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion DATETIME NULL DEFAULT(GETDATE()),
-			UsuarioCreacion NVARCHAR(100) NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion DATETIME NULL,
-			UsuarioModificacion NVARCHAR(100) NULL,
+			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
+			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			FechaModificacion [UDT_DateTime] NULL,
+			UsuarioModificacion [UDT_VarcharCorto] NULL,
 			--Columnas Linaje
 			ID_Batch UNIQUEIDENTIFIER NULL,
 			ID_SourceSystem VARCHAR(20)	
@@ -73,13 +73,13 @@ DECLARE @EliminarDB BIT = 1;
 		CREATE TABLE Dimension.Geografia (
 			SK_Geografia [UDT_SK] PRIMARY KEY IDENTITY,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] DATETIME NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] DATETIME NULL,
+			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] [UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion DATETIME NULL DEFAULT(GETDATE()),
-			UsuarioCreacion NVARCHAR(100) NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion DATETIME NULL,
-			UsuarioModificacion NVARCHAR(100) NULL,
+			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
+			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			FechaModificacion [UDT_DateTime] NULL,
+			UsuarioModificacion [UDT_VarcharCorto] NULL,
 			--Columnas Linaje
 			ID_Batch UNIQUEIDENTIFIER NULL,
 			ID_SourceSystem VARCHAR(20)	
@@ -89,13 +89,13 @@ DECLARE @EliminarDB BIT = 1;
 		CREATE TABLE Dimension.Clientes (
 			SK_Clientes [UDT_SK] PRIMARY KEY IDENTITY,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] DATETIME NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] DATETIME NULL,
+			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] [UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion DATETIME NULL DEFAULT(GETDATE()),
-			UsuarioCreacion NVARCHAR(100) NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion DATETIME NULL,
-			UsuarioModificacion NVARCHAR(100) NULL,
+			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
+			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			FechaModificacion [UDT_DateTime] NULL,
+			UsuarioModificacion [UDT_VarcharCorto] NULL,
 			--Columnas Linaje
 			ID_Batch UNIQUEIDENTIFIER NULL,
 			ID_SourceSystem VARCHAR(20)	
@@ -105,13 +105,13 @@ DECLARE @EliminarDB BIT = 1;
 		CREATE TABLE Dimension.Partes (
 			SK_Partes [UDT_SK] PRIMARY KEY IDENTITY,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] DATETIME NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] DATETIME NULL,
+			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] [UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion DATETIME NULL DEFAULT(GETDATE()),
-			UsuarioCreacion NVARCHAR(100) NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion DATETIME NULL,
-			UsuarioModificacion NVARCHAR(100) NULL,
+			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
+			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			FechaModificacion [UDT_DateTime] NULL,
+			UsuarioModificacion [UDT_VarcharCorto] NULL,
 			--Columnas Linaje
 			ID_Batch UNIQUEIDENTIFIER NULL,
 			ID_SourceSystem VARCHAR(20)	
@@ -125,13 +125,13 @@ DECLARE @EliminarDB BIT = 1;
 			[RowCreatedDate] [UDT_DateTime] NULL,
 			[Activa] [bit] NULL,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] DATETIME NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] DATETIME NULL,
+			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] [UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion DATETIME NULL DEFAULT(GETDATE()),
-			UsuarioCreacion NVARCHAR(100) NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion DATETIME NULL,
-			UsuarioModificacion NVARCHAR(100) NULL,
+			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
+			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			FechaModificacion [UDT_DateTime] NULL,
+			UsuarioModificacion [UDT_VarcharCorto] NULL,
 			--Columnas Linaje
 			ID_Batch UNIQUEIDENTIFIER NULL,
 			ID_SourceSystem VARCHAR(20)	
@@ -148,13 +148,13 @@ DECLARE @EliminarDB BIT = 1;
 			[Estilo] [UDT_VarcharMediano] NOT NULL,
 			[FechaCreacionVeh] [datetime] NULL,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] DATETIME NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] DATETIME NULL,
+			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] [UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion DATETIME NULL DEFAULT(GETDATE()),
-			UsuarioCreacion NVARCHAR(100) NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion DATETIME NULL,
-			UsuarioModificacion NVARCHAR(100) NULL,
+			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
+			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			FechaModificacion [UDT_DateTime] NULL,
+			UsuarioModificacion [UDT_VarcharCorto] NULL,
 			--Columnas Linaje
 			ID_Batch UNIQUEIDENTIFIER NULL,
 			ID_SourceSystem VARCHAR(20)	
@@ -166,13 +166,13 @@ DECLARE @EliminarDB BIT = 1;
 			[NombreDescuento] [UDT_VarcharMediano] NOT NULL,
 			[PorcentajeDescuento] [UDT_Decimal2.2] NOT NULL,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] DATETIME NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] DATETIME NULL,
+			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] [UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion DATETIME NULL DEFAULT(GETDATE()),
-			UsuarioCreacion NVARCHAR(100) NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion DATETIME NULL,
-			UsuarioModificacion NVARCHAR(100) NULL,
+			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
+			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			FechaModificacion [UDT_DateTime] NULL,
+			UsuarioModificacion [UDT_VarcharCorto] NULL,
 			--Columnas Linaje
 			ID_Batch UNIQUEIDENTIFIER NULL,
 			ID_SourceSystem VARCHAR(20)	
@@ -205,13 +205,13 @@ DECLARE @EliminarDB BIT = 1;
 			[ActualizadoPor] [UDT_VarcharCorto] NULL,
 			[UltimaFechaActualizacion] [datetime] NULL,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] DATETIME NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] DATETIME NULL,
+			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] [UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion DATETIME NULL DEFAULT(GETDATE()),
-			UsuarioCreacion NVARCHAR(100) NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion DATETIME NULL,
-			UsuarioModificacion NVARCHAR(100) NULL,
+			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
+			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			FechaModificacion [UDT_DateTime] NULL,
+			UsuarioModificacion [UDT_VarcharCorto] NULL,
 			--Columnas Linaje
 			ID_Batch UNIQUEIDENTIFIER NULL,
 			ID_SourceSystem VARCHAR(20)	
@@ -222,13 +222,13 @@ DECLARE @EliminarDB BIT = 1;
 			[ID_StatusOrden] [int] IDENTITY(1,1) NOT NULL,
 			[NombreStatus] [UDT_VarcharCorto] NOT NULL,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] DATETIME NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] DATETIME NULL,
+			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] [UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion DATETIME NULL DEFAULT(GETDATE()),
-			UsuarioCreacion NVARCHAR(100) NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion DATETIME NULL,
-			UsuarioModificacion NVARCHAR(100) NULL,
+			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
+			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			FechaModificacion [UDT_DateTime] NULL,
+			UsuarioModificacion [UDT_VarcharCorto] NULL,
 			--Columnas Linaje
 			ID_Batch UNIQUEIDENTIFIER NULL,
 			ID_SourceSystem VARCHAR(20)	
@@ -239,13 +239,13 @@ DECLARE @EliminarDB BIT = 1;
 			[Origen] VARCHAR(20),
 			ID_Orden [UDT_PK],
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] DATETIME NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] DATETIME NULL,
+			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] [UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion DATETIME NULL DEFAULT(GETDATE()),
-			UsuarioCreacion NVARCHAR(100) NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion DATETIME NULL,
-			UsuarioModificacion NVARCHAR(100) NULL,
+			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
+			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			FechaModificacion [UDT_DateTime] NULL,
+			UsuarioModificacion [UDT_VarcharCorto] NULL,
 			--Columnas Linaje
 			ID_Batch UNIQUEIDENTIFIER NULL,
 			ID_SourceSystem VARCHAR(20)	
@@ -314,10 +314,10 @@ DECLARE @EliminarDB BIT = 1;
 			[NecesitadoParaFecha] [datetime] NULL,
 			[VehiculoID] [int] NULL,
 			--Columnas Auditoria
-			FechaCreacion DATETIME NOT NULL DEFAULT(GETDATE()),
-			UsuarioCreacion VARCHAR(100) NOT NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion DATETIME NULL,
-			UsuarioModificacion VARCHAR(100) NULL,
+			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
+			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			FechaModificacion [UDT_DateTime] NULL,
+			UsuarioModificacion [UDT_VarcharCorto] NULL,
 			--Columnas Linaje
 			ID_Batch UNIQUEIDENTIFIER NULL,
 			ID_SourceSystem VARCHAR(50)
