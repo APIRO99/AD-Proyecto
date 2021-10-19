@@ -3,7 +3,7 @@ Se opto por un modelo de estrella para nuestro DWH
 
 
 ## Dimensiones y Fact
-![Diagrama de Dimensiones](./utils/dimensiones.png)
+![Diagrama de Dimensiones](/utils/dimensiones.png)
 Dimensiones creadas dontre de nuestro DWH con sus respectivas tablas
 * Fact
   * Orden
