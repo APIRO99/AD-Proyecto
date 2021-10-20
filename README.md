@@ -182,6 +182,10 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 
 
 ### Origen
-
+| Atributo                        | Tipo SCD |
+|          -------------          | :------: |
+| Origen                          |     0    |
+| ID_Batch                        |     0    |
+| ID_SourceSystem                 |     0    |
 
 ### Fecha
