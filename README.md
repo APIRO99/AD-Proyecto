@@ -119,14 +119,54 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 ### Vehiculo
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
+| VIN_Patron                      |     0    |
+| Anio                            |     0    |
+| Marca                           |     0    |
+| Modelo                          |     0    |
+| SubModelo                       |     0    |
+| Estilo                          |     1    |
+| FechaCreacionVeh                |     0    |
+| ID_Batch                        |     0    |
+| ID_SourceSystem                 |     0    |
 
 ### Aseguradora
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
+| IDAseguradora                   |     0    |
+| NombreAseguradora               |     2    |
+| RowCreatedDate                  |     0    |
+| Activa                          |     2    |
+| ID_Batch                        |     0    |
+| ID_SourceSystem                 |     0    |
 
 ### Planta  
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
+| CompanyNombre                   |     2    |
+| Direccion                       |     1    |
+| Direccion2                      |     1    |
+| Ciudad                          |     2    |
+| Estado                          |     1    |
+| CodigoPostal                    |     2    |
+| Pais                            |     0    |
+| TelefonoAlmacen                 |     1    |
+| FaxAlmacen                      |     1    |
+| CorreoContacto                  |     1    |
+| NombreContacto                  |     1    |
+| TelefonoContacto                |     1    |
+| TituloTrabajo                   |     0    |
+| AlmacenKeystone                 |     0    |
+| IDPredio                        |     0    |
+| LocalizadorCotizacion           |     0    |
+| FechaAgregado                   |     1    |
+| IDEmpresa                       |     0    |
+| ValidacionSeguro                |     1    |
+| Activo                          |     2    |
+| CreadoPor                       |     1    |
+| ActualizadoPor                  |     1    |
+| UltimaFechaActualizacion        |     1    |
+| ID_Batch                        |     0    |
+| ID_SourceSystem                 |     0    |
 
 ### Descuento
 | Atributo                        | Tipo SCD |
@@ -162,6 +202,10 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 | DescripcionLinea                |     2    |
 
 ### Origen
-
+| Atributo                        | Tipo SCD |
+|          -------------          | :------: |
+| Origen                          |     0    |
+| ID_Batch                        |     0    |
+| ID_SourceSystem                 |     0    |
 
 ### Fecha
