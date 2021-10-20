@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{2B7D175E-F8D9-4AE8-91C9-69E960D58EFB}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{B6CC696B-4647-4504-ADB4-8476D139F3B0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -5982,6 +5982,647 @@ FROM
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Carga de Dimensiones\Dimension StatusOrden"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{5f4b65c3-3a01-47b8-839c-f49dc849d8e6}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Dimension StatusOrden"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Columnas de Linaje"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_Batch]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_Batch]"
+                          name="ID_Batch"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_GUID)@[System::ExecutionInstanceGUID]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_GUID)@[System::ExecutionInstanceGUID]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]"
+                          name="ID_SourceSystem"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,50,1252)@[System::PackageName]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,50,1252)@[System::PackageName]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Fuente StatusOrden"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+  SO.ID_StatusOrden,
+  SO.NombreStatus
+FROM DBO.StatusOrden AS SO</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.RepuestosWeb]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.RepuestosWeb]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output].Columns[ID_StatusOrden]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output].ExternalColumns[ID_StatusOrden]"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output].Columns[ID_StatusOrden]"
+                          name="ID_StatusOrden"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output].Columns[NombreStatus]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output].ExternalColumns[NombreStatus]"
+                          length="100"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output].Columns[NombreStatus]"
+                          name="NombreStatus"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output].ExternalColumns[ID_StatusOrden]"
+                          dataType="i4"
+                          name="ID_StatusOrden" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output].ExternalColumns[NombreStatus]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NombreStatus" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Error Output].Columns[ID_StatusOrden]"
+                          dataType="i4"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Error Output].Columns[ID_StatusOrden]"
+                          name="ID_StatusOrden" />
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Error Output].Columns[NombreStatus]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Error Output].Columns[NombreStatus]"
+                          name="NombreStatus" />
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Insert Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Dimension].[StatusOrden]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.RepuestosWebDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.RepuestosWebDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID_StatusOrden]"
+                          cachedDataType="i4"
+                          cachedName="ID_StatusOrden"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_StatusOrden]"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output].Columns[ID_StatusOrden]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].Columns[NombreStatus]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreStatus"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NombreStatus]"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output].Columns[NombreStatus]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID_Batch]"
+                          cachedDataType="guid"
+                          cachedName="ID_Batch"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Batch]"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_Batch]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID_SourceSystem]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_SourceSystem"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_SourceSystem]"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_StatusOrden]"
+                          dataType="i4"
+                          name="SK_StatusOrden" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_StatusOrden]"
+                          dataType="i4"
+                          name="ID_StatusOrden" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NombreStatus]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NombreStatus" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicioValidez]"
+                          dataType="dbTimeStamp"
+                          name="FechaInicioValidez" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaFinValidez]"
+                          dataType="dbTimeStamp"
+                          name="FechaFinValidez" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaCreacion]"
+                          dataType="dbTimeStamp"
+                          name="FechaCreacion" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaModificacion]"
+                          dataType="dbTimeStamp"
+                          name="FechaModificacion" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioCreacion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="UsuarioCreacion" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioModificacion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="UsuarioModificacion" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Batch]"
+                          dataType="guid"
+                          name="ID_Batch" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_SourceSystem]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ID_SourceSystem" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension"
+                  componentClassID="Microsoft.SCD"
+                  contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                  description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+                  name="Slowly Changing Dimension"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SELECT statement used to create a schema rowset."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [ID_Batch], [ID_SourceSystem], [ID_StatusOrden], [NombreStatus] FROM [Dimension].[StatusOrden]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                      name="CurrentRowWhere"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                      name="UpdateChangingAttributeHistory">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                      name="FailOnFixedAttributeChange">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the column name for the inferred member."
+                      name="InferredMemberIndicator"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether inferred member updates are detected."
+                      name="EnableInferredMember">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                      name="FailOnLookupFailure">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies that all rows in the input are new or the transformation detects the change type."
+                      name="IncomingRowChangeType"
+                      typeConverter="IncomingRowChangeType">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Connections[LookupConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.RepuestosWebDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.RepuestosWebDWH]"
+                      description="Defines the connection to use for lookups in the dimension table"
+                      name="LookupConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                      name="Slowly Changing Dimension Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_Batch]"
+                          cachedDataType="guid"
+                          cachedName="ID_Batch"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Batch]"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_Batch]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">4</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_SourceSystem]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_SourceSystem"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_SourceSystem]"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">4</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_StatusOrden]"
+                          cachedDataType="i4"
+                          cachedName="ID_StatusOrden"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_StatusOrden]"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output].Columns[ID_StatusOrden]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[NombreStatus]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreStatus"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombreStatus]"
+                          lineageId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output].Columns[NombreStatus]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">4</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Batch]"
+                          dataType="guid"
+                          name="ID_Batch" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_SourceSystem]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ID_SourceSystem" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_StatusOrden]"
+                          dataType="i4"
+                          name="ID_StatusOrden" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombreStatus]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NombreStatus" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                      description="Unchanged rows"
+                      exclusionGroup="1"
+                      name="Unchanged Output"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Outputs[New Output]"
+                      description="New rows"
+                      exclusionGroup="1"
+                      name="New Output"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                      description="Rows with changes in columns tagged FixedAttribute"
+                      exclusionGroup="1"
+                      name="Fixed Attribute Output"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                      description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                      exclusionGroup="1"
+                      name="Changing Attribute Updates Output"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                      description="HistoricalAttribute (Type 2) changes result in these new rows"
+                      exclusionGroup="2"
+                      name="Historical Attribute Inserts Output"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                      description="Information to update unpopulated initial dimension row"
+                      exclusionGroup="1"
+                      name="Inferred Member Updates Output"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Carga de Dimensiones\Dimension StatusOrden.Paths[Derived Column Output]"
+                  endId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Derived Column Output"
+                  startId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Carga de Dimensiones\Dimension StatusOrden.Paths[New Output]"
+                  endId="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination.Inputs[OLE DB Destination Input]"
+                  name="New Output"
+                  startId="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension.Outputs[New Output]" />
+                <path
+                  refId="Package\Carga de Dimensiones\Dimension StatusOrden.Paths[OLE DB Source Output]"
+                  endId="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
     </DTS:Executable>
   </DTS:Executables>
@@ -6000,7 +6641,7 @@ FROM
         <NodeLayout
           Size="174,42"
           Id="Package\Carga de Dimensiones\Dimension Clientes"
-          TopLeft="85,104" />
+          TopLeft="91,101" />
         <NodeLayout
           Size="165,42"
           Id="Package\Carga de Dimensiones\Dimension Fecha"
@@ -6008,16 +6649,20 @@ FROM
         <NodeLayout
           Size="182,42"
           Id="Package\Carga de Dimensiones\Dimension Geografia"
-          TopLeft="85,219" />
+          TopLeft="73,437" />
         <NodeLayout
           Size="166,42"
           Id="Package\Carga de Dimensiones\Dimension Partes"
-          TopLeft="92,162" />
+          TopLeft="84,518" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Carga de Dimensiones\Dimension StatusOrden"
+          TopLeft="80,166" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="372,589"
-          Size="372,632"
+          PanelSize="372,717"
+          Size="372,760"
           Id="Package\Carga de Dimensiones"
           TopLeft="60,60" />
       </GraphLayout>
@@ -7078,6 +7723,160 @@ FROM
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Carga de Dimensiones\Dimension StatusOrden">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden"
+          TopLeft="351.5,55.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Carga de Dimensiones\Dimension StatusOrden\Columnas de Linaje"
+          TopLeft="352.5,157.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension StatusOrden.Paths[OLE DB Source Output]"
+          TopLeft="438,97.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension"
+          TopLeft="333.5,259.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension StatusOrden.Paths[Derived Column Output]"
+          TopLeft="438,199.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Carga de Dimensiones\Dimension StatusOrden\Insert Destination"
+          TopLeft="356.5,361.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension StatusOrden.Paths[New Output]"
+          TopLeft="438,301.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-27.09138671875,20.533203125,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga de Dimensiones\Dimension StatusOrden\Fuente StatusOrden">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga de Dimensiones\Dimension StatusOrden\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{DA7F63C9-091E-4661-9A16-2D5945BE89D2}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[Dimension].[StatusOrden]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_Batch]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Batch&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_SourceSystem&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente StatusOrden.Outputs[OLE DB Source Output].Columns[ID_StatusOrden]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_StatusOrden&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente StatusOrden.Outputs[OLE DB Source Output].Columns[NombreStatus]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreStatus&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

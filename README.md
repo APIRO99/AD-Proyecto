@@ -98,6 +98,9 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 ### StatusOrden
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
+| ID_Batch                        |     0    |
+| ID_SourceSystem                 |     0    |
+| PrimerNombre                    |     0    |
 
 ### Clientes
 | Atributo                        | Tipo SCD |
