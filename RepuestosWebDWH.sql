@@ -343,34 +343,6 @@ DECLARE @EliminarDB BIT = 1;
 	--END Fact
 
 	--Metadata
-
-		EXEC sys.sp_addextendedproperty 
-  	   @name = N'Desnormalizacion', 
-  	   @value = N'La dimension geografia provee una vista desnormalizada, integrar� Pa�s, Region y Ciudad, dejando todo en una �nica dimensi�n para un modelo estrella', 
-  	   @level0type = N'SCHEMA', 
-  	   @level0name = N'Dimension', 
-  	   @level1type = N'TABLE', 
-  	   @level1name = N'Geografia';
-		GO
-
-		EXEC sys.sp_addextendedproperty 
-  	   @name = N'Desnormalizacion', 
-  	   @value = N'La dimension clientes tendr� informaci�n de los clientes en una sola dimensi�n para un modelo estrella', 
-  	   @level0type = N'SCHEMA', 
-  	   @level0name = N'Dimension', 
-  	   @level1type = N'TABLE', 
-  	   @level1name = N'Clientes';
-		GO
-
-		EXEC sys.sp_addextendedproperty 
-  	   @name = N'Desnormalizacion', 
-  	   @value = N'La dimension partes tendr� informaci�n las tablas de Partes, Linea y Categoria en una sola dimensi�n para un modelo estrella', 
-  	   @level0type = N'SCHEMA', 
-  	   @level0name = N'Dimension', 
-  	   @level1type = N'TABLE', 
-  	   @level1name = N'Partes';
-		GO
-
 		EXEC sys.sp_addextendedproperty 
   	   @name = N'Desnormalizacion', 
   	   @value = N'La dimension fecha es generada de forma automatica y no tiene datos origen, se puede regenerar enviando un rango de fechas al stored procedure USP_FillDimDate', 
@@ -382,7 +354,88 @@ DECLARE @EliminarDB BIT = 1;
 
 		EXEC sys.sp_addextendedproperty 
   	   @name = N'Desnormalizacion', 
-  	   @value = N'La tabla de hechos es una union proveniente de las tablas de Orden, detalle orden, Descuento, statusOrden', 
+  	   @value = N'La dimension Origen tendra informacion de los del origen de las ordens, esta sera extraida de las tablas Aseguradora y Clientes. Estara en una sola dimension para un modelo estrella', 
+  	   @level0type = N'SCHEMA', 
+  	   @level0name = N'Dimension', 
+  	   @level1type = N'TABLE', 
+  	   @level1name = N'Origen';
+		GO
+
+		EXEC sys.sp_addextendedproperty 
+  	   @name = N'Desnormalizacion', 
+  	   @value = N'La dimension Aseguradora tendra informacion de las aseguradoras en una sola dimension para un modelo estrella', 
+  	   @level0type = N'SCHEMA', 
+  	   @level0name = N'Dimension', 
+  	   @level1type = N'TABLE', 
+  	   @level1name = N'Aseguradora';
+		GO
+
+		EXEC sys.sp_addextendedproperty 
+  	   @name = N'Desnormalizacion', 
+  	   @value = N'La dimension geografia provee una vista desnormalizada, integrara Pais, Region y Ciudad, dejando todo en una unica dimension para un modelo estrella', 
+  	   @level0type = N'SCHEMA', 
+  	   @level0name = N'Dimension', 
+  	   @level1type = N'TABLE', 
+  	   @level1name = N'Geografia';
+		GO
+
+		EXEC sys.sp_addextendedproperty 
+  	   @name = N'Desnormalizacion', 
+  	   @value = N'La dimension clientes tendra informacion de los clientes en una sola dimension para un modelo estrella', 
+  	   @level0type = N'SCHEMA', 
+  	   @level0name = N'Dimension', 
+  	   @level1type = N'TABLE', 
+  	   @level1name = N'Clientes';
+		GO
+
+		EXEC sys.sp_addextendedproperty 
+  	   @name = N'Desnormalizacion', 
+  	   @value = N'La dimension StatusOrden tendra informacion de los estados de las ordenes en una sola dimension para un modelo estrella', 
+  	   @level0type = N'SCHEMA', 
+  	   @level0name = N'Dimension', 
+  	   @level1type = N'TABLE', 
+  	   @level1name = N'StatusOrden';
+		GO
+
+		EXEC sys.sp_addextendedproperty 
+  	   @name = N'Desnormalizacion', 
+  	   @value = N'La dimension descuento tendra informacion de los Descuentos en una sola dimension para un modelo estrella', 
+  	   @level0type = N'SCHEMA', 
+  	   @level0name = N'Dimension', 
+  	   @level1type = N'TABLE', 
+  	   @level1name = N'Descuento';
+		GO
+
+		EXEC sys.sp_addextendedproperty 
+  	   @name = N'Desnormalizacion', 
+  	   @value = N'La dimension partes tendra informacion las tablas de Partes, Linea y Categoria en una sola dimension para un modelo estrella', 
+  	   @level0type = N'SCHEMA', 
+  	   @level0name = N'Dimension', 
+  	   @level1type = N'TABLE', 
+  	   @level1name = N'Partes';
+		GO
+
+		EXEC sys.sp_addextendedproperty 
+  	   @name = N'Desnormalizacion', 
+  	   @value = N'La dimension vehiculo tendra informacion de los vehiculos en una sola dimension para un modelo estrella', 
+  	   @level0type = N'SCHEMA', 
+  	   @level0name = N'Dimension', 
+  	   @level1type = N'TABLE', 
+  	   @level1name = N'Vehiculo';
+		GO
+
+		EXEC sys.sp_addextendedproperty 
+  	   @name = N'Desnormalizacion', 
+  	   @value = N'La dimension planta tendra informacion de las Plantas de Reparacion en una sola dimension para un modelo estrella', 
+  	   @level0type = N'SCHEMA', 
+  	   @level0name = N'Dimension', 
+  	   @level1type = N'TABLE', 
+  	   @level1name = N'Planta';
+		GO
+
+		EXEC sys.sp_addextendedproperty 
+  	   @name = N'Desnormalizacion', 
+  	   @value = N'La tabla de hechos es una union proveniente de las tablas de Orden, detalle orden, Cotizacion y CotizacionDetalle', 
   	   @level0type = N'SCHEMA', 
   	   @level0name = N'Fact', 
   	   @level1type = N'TABLE', 
