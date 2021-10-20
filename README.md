@@ -119,6 +119,15 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 ### Vehiculo
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
+| VIN_Patron                      |     0    |
+| Anio                            |     0    |
+| Marca                           |     0    |
+| Modelo                          |     0    |
+| SubModelo                       |     0    |
+| Estilo                          |     1    |
+| FechaCreacionVeh                |     0    |
+| ID_Batch                        |     0    |
+| ID_SourceSystem                 |     0    |
 
 ### Aseguradora
 | Atributo                        | Tipo SCD |
