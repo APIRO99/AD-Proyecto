@@ -116,9 +116,6 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 | Nacimiento                      |     0    |
 | Direccion                       |     2    |
 
-
-
-
 ### Vehiculo
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
