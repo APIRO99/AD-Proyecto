@@ -13,6 +13,7 @@ DECLARE @EliminarDB BIT = 1;
 
 -- Crea DB y la selecciona
 	CREATE DATABASE RepuestosWebDWH
+	GO
 	USE RepuestosWebDWH
 	exec sp_changedbowner 'sa'
 	GO
@@ -23,6 +24,8 @@ DECLARE @EliminarDB BIT = 1;
 	--Enteros
 		CREATE TYPE [UDT_SK] FROM INT --Tipo para SK entero: Surrogate Key
 		CREATE TYPE [UDT_PK] FROM INT --Tipo para PK entero
+		CREATE TYPE [UDT_SmallInt] from SMALLINT
+		CREATE TYPE [UDT_Int] from INT
 
 	--Cadenas
 		CREATE TYPE [UDT_VarcharLargo] FROM VARCHAR(600) --Tipo para cadenas largas
@@ -38,6 +41,10 @@ DECLARE @EliminarDB BIT = 1;
 
 	--Fechas
 		CREATE TYPE [UDT_DateTime] FROM DATETIME
+		CREATE TYPE [UDT_Date] FROM DATE
+
+	--Bool
+		CREATE TYPE [UDT_Bit] FROM BIT
 	GO
 --END
 
@@ -55,272 +62,281 @@ DECLARE @EliminarDB BIT = 1;
 	--Tablas Dimensiones
 		--DIMENSION FECHA
 		CREATE TABLE Dimension.Fecha (
-			DateKey [UDT_PK] PRIMARY KEY,
+			DateKey 							[UDT_PK] PRIMARY KEY,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] [UDT_DateTime] NULL,
+			[FechaInicioValidez]  				[UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] 					[UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
-			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion [UDT_DateTime] NULL,
-			UsuarioModificacion [UDT_VarcharCorto] NULL,
+			FechaCreacion 						[UDT_DateTime] NULL DEFAULT(GETDATE()),
+			FechaModificacion 					[UDT_DateTime] NULL,
+			UsuarioCreacion 					[UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			UsuarioModificacion 				[UDT_VarcharCorto] NULL,
 			--Columnas Linaje
-			ID_Batch UNIQUEIDENTIFIER NULL,
-			ID_SourceSystem VARCHAR(20)	
+			ID_Batch 							UNIQUEIDENTIFIER NULL,
+			ID_SourceSystem 					VARCHAR(20)	
 		)
+		GO
 
 		--DIMENSION Geografia
 		CREATE TABLE Dimension.Geografia (
-			SK_Geografia [UDT_SK] PRIMARY KEY IDENTITY,
+			SK_Geografia 						[UDT_SK] PRIMARY KEY IDENTITY,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] [UDT_DateTime] NULL,
+			[FechaInicioValidez]  				[UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] 					[UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
-			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion [UDT_DateTime] NULL,
-			UsuarioModificacion [UDT_VarcharCorto] NULL,
+			FechaCreacion 						[UDT_DateTime] NULL DEFAULT(GETDATE()),
+			FechaModificacion 					[UDT_DateTime] NULL,
+			UsuarioCreacion 					[UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			UsuarioModificacion 				[UDT_VarcharCorto] NULL,
 			--Columnas Linaje
-			ID_Batch UNIQUEIDENTIFIER NULL,
-			ID_SourceSystem VARCHAR(20)	
+			ID_Batch 							UNIQUEIDENTIFIER NULL,
+			ID_SourceSystem 					VARCHAR(20)	
 		)
+		GO
 
 		--DIMENSION Clientes
 		CREATE TABLE Dimension.Clientes (
-			SK_Clientes [UDT_SK] PRIMARY KEY IDENTITY,
+			SK_Clientes 						[UDT_SK] PRIMARY KEY IDENTITY,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] [UDT_DateTime] NULL,
+			[FechaInicioValidez]  				[UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] 					[UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
-			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion [UDT_DateTime] NULL,
-			UsuarioModificacion [UDT_VarcharCorto] NULL,
+			FechaCreacion 						[UDT_DateTime] NULL DEFAULT(GETDATE()),
+			FechaModificacion 					[UDT_DateTime] NULL,
+			UsuarioCreacion 					[UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			UsuarioModificacion 				[UDT_VarcharCorto] NULL,
 			--Columnas Linaje
-			ID_Batch UNIQUEIDENTIFIER NULL,
-			ID_SourceSystem VARCHAR(20)	
+			ID_Batch 							UNIQUEIDENTIFIER NULL,
+			ID_SourceSystem 					VARCHAR(20)	
 		)
+		GO
 
 		--DIMENSION Partes
 		CREATE TABLE Dimension.Partes (
-			SK_Partes [UDT_SK] PRIMARY KEY IDENTITY,
+			SK_Partes							[UDT_SK] PRIMARY KEY IDENTITY,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] [UDT_DateTime] NULL,
+			[FechaInicioValidez]  				[UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] 					[UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
-			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion [UDT_DateTime] NULL,
-			UsuarioModificacion [UDT_VarcharCorto] NULL,
+			FechaCreacion 						[UDT_DateTime] NULL DEFAULT(GETDATE()),
+			FechaModificacion 					[UDT_DateTime] NULL,
+			UsuarioCreacion 					[UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			UsuarioModificacion 				[UDT_VarcharCorto] NULL,
 			--Columnas Linaje
-			ID_Batch UNIQUEIDENTIFIER NULL,
-			ID_SourceSystem VARCHAR(20)	
+			ID_Batch 							UNIQUEIDENTIFIER NULL,
+			ID_SourceSystem 					VARCHAR(20)	
 		)
+		GO
 
 		--DIMENSION Aseguradora
 		CREATE TABLE Dimension.Aseguradora (
-			SK_Aseguradora [UDT_SK] PRIMARY KEY IDENTITY,
-			[IDAseguradora] [UDT_PK] IDENTITY(1,1) NOT NULL,
-			[NombreAseguradora] [UDT_VarcharMediano] NULL,
-			[RowCreatedDate] [UDT_DateTime] NULL,
-			[Activa] [bit] NULL,
+			SK_Aseguradora 						[UDT_SK] PRIMARY KEY IDENTITY,
+			[IDAseguradora] 					[UDT_PK] NOT NULL,
+			[NombreAseguradora] 				[UDT_VarcharCorto] NULL,
+			[RowCreatedDate] 					[UDT_DateTime] NULL,
+			[Activa] 							[UDT_Bit] NULL,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] [UDT_DateTime] NULL,
+			[FechaInicioValidez]  				[UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] 					[UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
-			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion [UDT_DateTime] NULL,
-			UsuarioModificacion [UDT_VarcharCorto] NULL,
+			FechaCreacion 						[UDT_DateTime] NULL DEFAULT(GETDATE()),
+			FechaModificacion 					[UDT_DateTime] NULL,
+			UsuarioCreacion 					[UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			UsuarioModificacion 				[UDT_VarcharCorto] NULL,
 			--Columnas Linaje
-			ID_Batch UNIQUEIDENTIFIER NULL,
-			ID_SourceSystem VARCHAR(20)	
+			ID_Batch 							UNIQUEIDENTIFIER NULL,
+			ID_SourceSystem 					VARCHAR(20)	
 		)
+		GO
 
 		CREATE TABLE Dimension.Vehiculo (
-			SK_Vehiculo [UDT_SK] PRIMARY KEY IDENTITY,
-			[VehiculoID] [int] IDENTITY(1,1) NOT NULL,
-			[VIN_Patron] [UDT_VarcharCorto] NOT NULL,
-			[Anio] [smallint] NOT NULL,
-			[Marca] [UDT_VarcharCorto] NOT NULL,
-			[Modelo] [UDT_VarcharCorto] NOT NULL,
-			[SubModelo] [UDT_VarcharCorto] NOT NULL,
-			[Estilo] [UDT_VarcharMediano] NOT NULL,
-			[FechaCreacionVeh] [datetime] NULL,
+			SK_Vehiculo 						[UDT_SK] PRIMARY KEY IDENTITY,
+			[VehiculoID]						[UDT_PK] NOT NULL,
+			[VIN_Patron] 						[UDT_VarcharCorto] NOT NULL,
+			[Anio] 								[UDT_SmallInt] NOT NULL,
+			[Marca] 							[UDT_VarcharCorto] NOT NULL,
+			[Modelo] 							[UDT_VarcharCorto] NOT NULL,
+			[SubModelo] 						[UDT_VarcharCorto] NOT NULL,
+			[Estilo] 							[UDT_VarcharMediano] NOT NULL,
+			[FechaCreacionVeh] 					[UDT_DateTime] NULL,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] [UDT_DateTime] NULL,
+			[FechaInicioValidez]  				[UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] 					[UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
-			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion [UDT_DateTime] NULL,
-			UsuarioModificacion [UDT_VarcharCorto] NULL,
+			FechaCreacion 						[UDT_DateTime] NULL DEFAULT(GETDATE()),
+			FechaModificacion 					[UDT_DateTime] NULL,
+			UsuarioCreacion 					[UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			UsuarioModificacion 				[UDT_VarcharCorto] NULL,
 			--Columnas Linaje
-			ID_Batch UNIQUEIDENTIFIER NULL,
-			ID_SourceSystem VARCHAR(20)	
+			ID_Batch 							UNIQUEIDENTIFIER NULL,
+			ID_SourceSystem 					VARCHAR(20)	
 		)
+		GO
 
 		CREATE TABLE Dimension.Descuento (
-			SK_Descuento [UDT_SK] PRIMARY KEY IDENTITY,
-			[ID_Descuento] [int] IDENTITY(1,1) NOT NULL,
-			[NombreDescuento] [UDT_VarcharMediano] NOT NULL,
-			[PorcentajeDescuento] [UDT_Decimal2.2] NOT NULL,
+			SK_Descuento 						[UDT_SK] PRIMARY KEY IDENTITY,
+			[ID_Descuento] 						[UDT_PK] NOT NULL,
+			[NombreDescuento] 					[UDT_VarcharMediano] NOT NULL,
+			[PorcentajeDescuento]				[UDT_Decimal2.2] NOT NULL,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] [UDT_DateTime] NULL,
+			[FechaInicioValidez]  				[UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] 					[UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
-			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion [UDT_DateTime] NULL,
-			UsuarioModificacion [UDT_VarcharCorto] NULL,
+			FechaCreacion 						[UDT_DateTime] NULL DEFAULT(GETDATE()),
+			FechaModificacion 					[UDT_DateTime] NULL,
+			UsuarioCreacion 					[UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			UsuarioModificacion 				[UDT_VarcharCorto] NULL,
 			--Columnas Linaje
-			ID_Batch UNIQUEIDENTIFIER NULL,
-			ID_SourceSystem VARCHAR(20)	
+			ID_Batch 							UNIQUEIDENTIFIER NULL,
+			ID_SourceSystem 					VARCHAR(20)	
 		)
+		GO
 
 		CREATE TABLE Dimension.Planta (
-			SK_Planta [UDT_SK] PRIMARY KEY IDENTITY,
-			[IDPlantaReparacion] [UDT_VarcharCorto] NOT NULL,
-			[CompanyNombre] [UDT_VarcharCorto] NOT NULL,
-			[Direccion] [UDT_VarcharCorto] NOT NULL,
-			[Direccion2] [UDT_VarcharCorto] NULL,
-			[Ciudad] [UDT_VarcharCorto] NOT NULL,
-			[Estado] [UDT_VarcharCorto] NOT NULL,
-			[CodigoPostal] [UDT_VarcharCorto] NOT NULL,
-			[Pais] [UDT_VarcharCorto] NULL,
-			[TelefonoAlmacen] [UDT_VarcharCorto] NULL,
-			[FaxAlmacen] [UDT_VarcharCorto] NULL,
-			[CorreoContacto] [UDT_VarcharCorto] NULL,
-			[NombreContacto] [UDT_VarcharCorto] NULL,
-			[TelefonoContacto] [UDT_VarcharCorto] NULL,
-			[TituloTrabajo] [UDT_VarcharCorto] NULL,
-			[AlmacenKeystone] [UDT_VarcharCorto] NULL,
-			[IDPredio] [UDT_VarcharCorto] NULL,
-			[LocalizadorCotizacion] [UDT_VarcharCorto] NULL,
-			[FechaAgregado] [datetime] NULL,
-			[IDEmpresa] [UDT_VarcharCorto] NOT NULL,
-			[ValidacionSeguro] [bit] NULL,
-			[Activo] [bit] NULL,
-			[CreadoPor] [UDT_VarcharCorto] NULL,
-			[ActualizadoPor] [UDT_VarcharCorto] NULL,
-			[UltimaFechaActualizacion] [datetime] NULL,
+			SK_Planta 							[UDT_SK] PRIMARY KEY IDENTITY,
+			[IDPlantaReparacion] 				[UDT_VarcharCorto] NOT NULL,
+			[CompanyNombre] 					[UDT_VarcharCorto] NOT NULL,
+			[Direccion] 						[UDT_VarcharCorto] NOT NULL,
+			[Direccion2] 						[UDT_VarcharCorto] NULL,
+			[Ciudad] 							[UDT_VarcharCorto] NOT NULL,
+			[Estado] 							[UDT_VarcharCorto] NOT NULL,
+			[CodigoPostal] 						[UDT_VarcharCorto] NOT NULL,
+			[Pais] 								[UDT_VarcharCorto] NULL,
+			[TelefonoAlmacen] 					[UDT_VarcharCorto] NULL,
+			[FaxAlmacen] 						[UDT_VarcharCorto] NULL,
+			[CorreoContacto] 					[UDT_VarcharCorto] NULL,
+			[NombreContacto] 					[UDT_VarcharCorto] NULL,
+			[TelefonoContacto] 					[UDT_VarcharCorto] NULL,
+			[TituloTrabajo] 					[UDT_VarcharCorto] NULL,
+			[AlmacenKeystone] 					[UDT_VarcharCorto] NULL,
+			[IDPredio] 							[UDT_VarcharCorto] NULL,
+			[LocalizadorCotizacion] 			[UDT_VarcharCorto] NULL,
+			[FechaAgregado] 					[UDT_DateTime] NULL,
+			[IDEmpresa] 						[UDT_VarcharCorto] NOT NULL,
+			[ValidacionSeguro] 					[UDT_Bit] NULL,
+			[Activo] 							[UDT_Bit] NULL,
+			[CreadoPor] 						[UDT_VarcharCorto] NULL,
+			[ActualizadoPor] 					[UDT_VarcharCorto] NULL,
+			[UltimaFechaActualizacion] 			[UDT_DateTime] NULL,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] [UDT_DateTime] NULL,
+			[FechaInicioValidez]  				[UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] 					[UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
-			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion [UDT_DateTime] NULL,
-			UsuarioModificacion [UDT_VarcharCorto] NULL,
+			FechaCreacion 						[UDT_DateTime] NULL DEFAULT(GETDATE()),
+			FechaModificacion 					[UDT_DateTime] NULL,
+			UsuarioCreacion 					[UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			UsuarioModificacion 				[UDT_VarcharCorto] NULL,
 			--Columnas Linaje
-			ID_Batch UNIQUEIDENTIFIER NULL,
-			ID_SourceSystem VARCHAR(20)	
+			ID_Batch 							UNIQUEIDENTIFIER NULL,
+			ID_SourceSystem 					VARCHAR(20)	
 		)
+		GO
 
 		CREATE TABLE Dimension.StatusOrden (
-			SK_StatusOrden [UDT_SK] PRIMARY KEY IDENTITY,
-			[ID_StatusOrden] [int] IDENTITY(1,1) NOT NULL,
-			[NombreStatus] [UDT_VarcharCorto] NOT NULL,
+			SK_StatusOrden 						[UDT_SK] PRIMARY KEY IDENTITY,
+			[ID_StatusOrden] 					[UDT_PK] NOT NULL,
+			[NombreStatus] 						[UDT_VarcharCorto] NOT NULL,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] [UDT_DateTime] NULL,
+			[FechaInicioValidez]  				[UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] 					[UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
-			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion [UDT_DateTime] NULL,
-			UsuarioModificacion [UDT_VarcharCorto] NULL,
+			FechaCreacion 						[UDT_DateTime] NULL DEFAULT(GETDATE()),
+			FechaModificacion 					[UDT_DateTime] NULL,
+			UsuarioCreacion 					[UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			UsuarioModificacion 				[UDT_VarcharCorto] NULL,
 			--Columnas Linaje
-			ID_Batch UNIQUEIDENTIFIER NULL,
-			ID_SourceSystem VARCHAR(20)	
+			ID_Batch 							UNIQUEIDENTIFIER NULL,
+			ID_SourceSystem 					VARCHAR(20)	
 		)
+		GO
 
 		CREATE TABLE Dimension.Origen (
-			SK_Origen [UDT_SK] PRIMARY KEY IDENTITY,
-			[Origen] VARCHAR(20),
-			ID_Orden [UDT_PK],
+			SK_Origen 							[UDT_SK] PRIMARY KEY IDENTITY,
+			ID_Orden 							[UDT_PK],
+			[Origen] 							[UDT_VarcharCorto],
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez] [UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] [UDT_DateTime] NULL,
+			[FechaInicioValidez]  				[UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			[FechaFinValidez] 					[UDT_DateTime] NULL,
 			--Columnas Auditoria
-			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
-			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion [UDT_DateTime] NULL,
-			UsuarioModificacion [UDT_VarcharCorto] NULL,
+			FechaCreacion 						[UDT_DateTime] NULL DEFAULT(GETDATE()),
+			FechaModificacion 					[UDT_DateTime] NULL,
+			UsuarioCreacion 					[UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			UsuarioModificacion 				[UDT_VarcharCorto] NULL,
 			--Columnas Linaje
-			ID_Batch UNIQUEIDENTIFIER NULL,
-			ID_SourceSystem VARCHAR(20)	
+			ID_Batch 							UNIQUEIDENTIFIER NULL,
+			ID_SourceSystem 					VARCHAR(20)	
 		)
+		GO
 
 	--END Dimensiones
 
 	--Tabla Fact
 		CREATE TABLE Fact.Orden (
-			SK_Orden [UDT_SK] PRIMARY KEY IDENTITY,
-			SK_Geografia [UDT_SK] REFERENCES Dimension.Geografia(SK_Geografia),
-			SK_Clientes [UDT_SK] REFERENCES Dimension.Clientes(SK_Clientes),
-			SK_Partes [UDT_SK] REFERENCES Dimension.Partes(SK_Partes),
-			SK_Aseguradora [UDT_SK] REFERENCES Dimension.Aseguradora(SK_Aseguradora),
-			SK_Vehiculo [UDT_SK] REFERENCES Dimension.Vehiculo(SK_Vehiculo),
-			SK_Descuento [UDT_SK] REFERENCES Dimension.Descuento(SK_Descuento),
-			SK_Planta [UDT_SK] REFERENCES Dimension.Planta(SK_Planta),
-			SK_StatusOrden [UDT_SK] REFERENCES Dimension.StatusOrden(SK_StatusOrden),
-			SK_Origen [UDT_SK] REFERENCES Dimension.Origen(SK_Origen),
-			DateKey INT REFERENCES Dimension.Fecha(DateKey),
-			[IDCotizacion] [int] NOT NULL,
-			[status] [varchar](50) NULL,
-			[TipoDocumento] [varchar](50) NULL,
-			[FechaCreacionCotizacion] [datetime] NULL,
-			[FechaModificacionCotizacion] [datetime] NULL,
-			[ProcesadoPor] [varchar](50) NULL,
-			[IDAseguradora] [int] NULL,
-			[AseguradoraSubsidiaria] [varchar](80) NULL,
-			[NumeroReclamo] [varchar](50) NULL,
-			[IDPlantaReparacion] [varchar](50) NULL,
-			[OrdenRealizada] [bit] NULL,
-			[CotizacionRealizada] [bit] NULL,
-			[CotizacionDuplicada] [bit] NULL,
-			[procurementFolderID] [varchar](50) NULL,
-			[DireccionEntrega1] [varchar](50) NULL,
-			[DireccionEntrega2] [varchar](50) NULL,
-			[MarcadoEntrega] [bit] NULL,
-			[IDPartner] [varchar](50) NULL,
-			[CodigoPostal] [varchar](10) NULL,
-			[LeidoPorPlantaReparacion] [bit] NOT NULL,
-			[LeidoPorPlantaReparacionFecha] [datetime] NULL,
-			[CotizacionReabierta] [bit] NOT NULL,
-			[EsAseguradora] [bit] NULL,
-			[CodigoVerificacion] [varchar](50) NULL,
-			[IDClientePlantaReparacion] [varchar](50) NULL,
-			[FechaCreacionRegistro] [datetime] NOT NULL,
-			[IDRecotizacion] [varchar](100) NULL,
-			[PartnerConfirmado] [bit] NOT NULL,
-			[WrittenBy] [varchar](80) NULL,
-			[SeguroValidado] [bit] NOT NULL,
-			[FechaCaptura] [datetime] NULL,
-			[IDOrden] [int] NULL,
-			[Ruta] [varchar](500) NULL,
-			[FechaLimiteRuta] [varchar](50) NULL,
-			[TelefonoEntrega] [varchar](15) NULL,
-			[NumLinea] [varchar](50) NOT NULL,
-			[ID_Parte] [varchar](50) NOT NULL,
-			[OETipoParte] [varchar](10) NULL,
-			[AltPartNum] [varchar](45) NULL,
-			[AltTipoParte] [varchar](45) NULL,
-			[ciecaTipoParte] [varchar](45) NULL,
-			[partDescripcion] [varchar](255) NULL,
-			[Cantidad] [int] NULL,
-			[PrecioListaOnRO] [varchar](10) NULL,
-			[PrecioNetoOnRO] [varchar](10) NULL,
-			[NecesitadoParaFecha] [datetime] NULL,
-			[VehiculoID] [int] NULL,
+			SK_Orden							[UDT_SK] PRIMARY KEY IDENTITY,
+			SK_Geografia						[UDT_SK] REFERENCES Dimension.Geografia(SK_Geografia),
+			SK_Clientes							[UDT_SK] REFERENCES Dimension.Clientes(SK_Clientes),
+			SK_Partes							[UDT_SK] REFERENCES Dimension.Partes(SK_Partes),
+			SK_Aseguradora						[UDT_SK] REFERENCES Dimension.Aseguradora(SK_Aseguradora),
+			SK_Vehiculo							[UDT_SK] REFERENCES Dimension.Vehiculo(SK_Vehiculo),
+			SK_Descuento						[UDT_SK] REFERENCES Dimension.Descuento(SK_Descuento),
+			SK_Planta							[UDT_SK] REFERENCES Dimension.Planta(SK_Planta),
+			SK_StatusOrden						[UDT_SK] REFERENCES Dimension.StatusOrden(SK_StatusOrden),
+			SK_Origen							[UDT_SK] REFERENCES Dimension.Origen(SK_Origen),
+			DateKey 							[UDT_SK] REFERENCES Dimension.Fecha(DateKey),
+			[IDCotizacion]						[UDT_PK] NOT NULL,
+			[status]							[UDT_VarcharCorto] NULL,
+			[TipoDocumento]						[UDT_VarcharCorto] NULL,
+			[FechaCreacionCotizacion]			[UDT_DateTime] NULL,
+			[FechaModificacionCotizacion]		[UDT_DateTime] NULL,
+			[ProcesadoPor]						[UDT_VarcharCorto] NULL,
+			[IDAseguradora]						[UDT_Int] NULL,
+			[AseguradoraSubsidiaria]			[UDT_VarcharCorto] NULL,
+			[NumeroReclamo]						[UDT_VarcharCorto] NULL,
+			[IDPlantaReparacion]				[UDT_VarcharCorto] NULL,
+			[OrdenRealizada]					[UDT_Bit] NULL,
+			[CotizacionRealizada]				[UDT_Bit] NULL,
+			[CotizacionDuplicada]				[UDT_Bit] NULL,
+			[procurementFolderID]				[UDT_VarcharCorto] NULL,
+			[DireccionEntrega1]					[UDT_VarcharCorto] NULL,
+			[DireccionEntrega2]					[UDT_VarcharCorto] NULL,
+			[MarcadoEntrega]					[UDT_Bit] NULL,
+			[IDPartner]							[UDT_VarcharCorto] NULL,
+			[CodigoPostal]						[UDT_VarcharCorto] NULL,
+			[LeidoPorPlantaReparacion]			[UDT_Bit] NOT NULL,
+			[LeidoPorPlantaReparacionFecha]		[UDT_DateTime] NULL,
+			[CotizacionReabierta]				[UDT_Bit] NOT NULL,
+			[EsAseguradora]						[UDT_Bit] NULL,
+			[CodigoVerificacion]				[UDT_VarcharCorto] NULL,
+			[IDClientePlantaReparacion]			[UDT_VarcharCorto] NULL,
+			[FechaCreacionRegistro]				[UDT_DateTime] NOT NULL,
+			[IDRecotizacion]					[UDT_VarcharCorto] NULL,
+			[PartnerConfirmado]					[UDT_Bit] NOT NULL,
+			[WrittenBy]							[UDT_VarcharCorto] NULL,
+			[SeguroValidado]					[UDT_Bit] NOT NULL,
+			[FechaCaptura]						[UDT_DateTime] NULL,
+			[IDOrden]							[UDT_Int] NULL,
+			[Ruta]								[UDT_VarcharLargo] NULL,
+			[FechaLimiteRuta]					[UDT_VarcharCorto] NULL,
+			[TelefonoEntrega]					[UDT_VarcharCorto] NULL,
+			[NumLinea]							[UDT_VarcharCorto] NOT NULL,
+			[OETipoParte]						[UDT_VarcharCorto] NULL,
+			[AltPartNum]						[UDT_VarcharCorto] NULL,
+			[AltTipoParte]						[UDT_VarcharCorto] NULL,
+			[ciecaTipoParte]					[UDT_VarcharCorto] NULL,
+			[partDescripcion]					[UDT_VarcharMediano] NULL,
+			[CantidadCotizacionDetalle]			[UDT_Int] NULL,
+			[PrecioListaOnRO]					[UDT_VarcharCorto] NULL,
+			[PrecioNetoOnRO]					[UDT_VarcharCorto] NULL,
+			[NecesitadoParaFecha]				[UDT_DateTime] NULL,
+			[VehiculoIDCotizacionDetalle]		[UDT_Int] NULL,
 			--Columnas Auditoria
-			FechaCreacion [UDT_DateTime] NULL DEFAULT(GETDATE()),
-			UsuarioCreacion [UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
-			FechaModificacion [UDT_DateTime] NULL,
-			UsuarioModificacion [UDT_VarcharCorto] NULL,
+			FechaCreacion 						[UDT_DateTime] NULL DEFAULT(GETDATE()),
+			FechaModificacion 					[UDT_DateTime] NULL,
+			UsuarioCreacion 					[UDT_VarcharCorto] NULL DEFAULT(SUSER_NAME()),
+			UsuarioModificacion 				[UDT_VarcharCorto] NULL,
 			--Columnas Linaje
-			ID_Batch UNIQUEIDENTIFIER NULL,
-			ID_SourceSystem VARCHAR(50)
+			ID_Batch 							UNIQUEIDENTIFIER NULL,
+			ID_SourceSystem 					VARCHAR(20)	
 		)
 		GO
 	
@@ -380,77 +396,90 @@ DECLARE @EliminarDB BIT = 1;
 --------------------------------------------------------------------------------------------
 --Transformaci�n en modelo l�gico (mas detalles)
 
---Fact
-	ALTER TABLE Fact.Orden ADD ID_Orden [UDT_PK]
-	ALTER TABLE Fact.Orden ADD ID_Cliente [UDT_PK]
-	ALTER TABLE Fact.Orden ADD ID_Ciudad [UDT_PK]
-	ALTER TABLE Fact.Orden ADD ID_Partes [UDT_VarcharCorto]
-	ALTER TABLE Fact.Orden ADD ID_DetalleOrden [UDT_PK]
-	ALTER TABLE Fact.Orden ADD Total_Orden [UDT_Decimal12.2]
-	ALTER TABLE Fact.Orden ADD CantidadOrden INT
-	ALTER TABLE Fact.Orden ADD StatusOrden [UDT_VarcharMediano]
-	ALTER TABLE Fact.Orden ADD Fecha_Orden DATETIME
+	--Fact
+		ALTER TABLE Fact.Orden ADD ID_Orden 						[UDT_PK]
+		ALTER TABLE Fact.Orden ADD ID_Cliente 						[UDT_PK]
+		ALTER TABLE Fact.Orden ADD ID_Ciudad 						[UDT_PK]
+		ALTER TABLE Fact.Orden ADD ID_StatusOrden					[UDT_PK]
+		ALTER TABLE Fact.Orden ADD Total_Orden 						[UDT_Decimal12.2]
+		ALTER TABLE Fact.Orden ADD Fecha_Orden 						[UDT_DateTime]
+		ALTER TABLE Fact.Orden ADD NumeroOrden						[UDT_VarcharCorto]
 
+		ALTER TABLE Fact.Orden ADD ID_DetalleOrden 					[UDT_PK]
+		ALTER TABLE Fact.Orden ADD ID_Parte 						[UDT_VarcharCorto]
+		ALTER TABLE Fact.Orden ADD ID_Descuento 					[UDT_PK]
+		ALTER TABLE Fact.Orden ADD CantidadDetalleOrden				[UDT_Int]
+		ALTER TABLE Fact.Orden ADD VehiculoIDDetalleOrden			[UDT_PK]
+	--END FACT
 
+	--Dimension.Fecha
+		ALTER TABLE Dimension.Fecha ADD [Date] 						DATE NOT NULL
+	  	ALTER TABLE Dimension.Fecha ADD [Day] 						TINYINT NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [DaySuffix] 				CHAR(2) NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [Weekday] 					TINYINT NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [WeekDayName] 				VARCHAR(10) NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [WeekDayName_Short] 		CHAR(3) NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [WeekDayName_FirstLetter] 	CHAR(1) NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [DOWInMonth] 				TINYINT NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [DayOfYear] 				SMALLINT NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [WeekOfMonth] 				TINYINT NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [WeekOfYear] 				TINYINT NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [Month] 					TINYINT NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [MonthName] 				VARCHAR(10) NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [MonthName_Short] 			CHAR(3) NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [MonthName_FirstLetter] 	CHAR(1) NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [Quarter] 					TINYINT NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [QuarterName] 				VARCHAR(6) NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [Year] 						INT NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [MMYYYY] 					CHAR(6) NOT NULL
+		ALTER TABLE Dimension.Fecha ADD [MonthYear] 				CHAR(7) NOT NULL
+	  	ALTER TABLE Dimension.Fecha ADD IsWeekend 					BIT NOT NULL
+	--END Dimension.Fecha
 
---DimFecha	
-	ALTER TABLE Dimension.Fecha ADD [Date] DATE NOT NULL
-  ALTER TABLE Dimension.Fecha ADD [Day] TINYINT NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [DaySuffix] CHAR(2) NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [Weekday] TINYINT NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [WeekDayName] VARCHAR(10) NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [WeekDayName_Short] CHAR(3) NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [WeekDayName_FirstLetter] CHAR(1) NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [DOWInMonth] TINYINT NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [DayOfYear] SMALLINT NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [WeekOfMonth] TINYINT NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [WeekOfYear] TINYINT NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [Month] TINYINT NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [MonthName] VARCHAR(10) NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [MonthName_Short] CHAR(3) NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [MonthName_FirstLetter] CHAR(1) NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [Quarter] TINYINT NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [QuarterName] VARCHAR(6) NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [Year] INT NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [MMYYYY] CHAR(6) NOT NULL
-	ALTER TABLE Dimension.Fecha ADD [MonthYear] CHAR(7) NOT NULL
-  ALTER TABLE Dimension.Fecha ADD IsWeekend BIT NOT NULL
+	--Dimension.Geografia
+		ALTER TABLE Dimension.Geografia ADD ID_Pais 				[UDT_PK]
+		ALTER TABLE Dimension.Geografia ADD NombrePais 				[UDT_VarcharCorto]
 
---DimGeografia
-	ALTER TABLE Dimension.Geografia ADD ID_Pais [UDT_PK]
-	ALTER TABLE Dimension.Geografia ADD ID_Region [UDT_PK]
-	ALTER TABLE Dimension.Geografia ADD ID_Ciudad [UDT_PK]
-	ALTER TABLE Dimension.Geografia ADD NombrePais [UDT_VarcharMediano]
-	ALTER TABLE Dimension.Geografia ADD NombreRegion [UDT_VarcharMediano]
-	ALTER TABLE Dimension.Geografia ADD NombreCiudad [UDT_VarcharMediano]
-	ALTER TABLE Dimension.Geografia ADD CodigoPostal INT
+		ALTER TABLE Dimension.Geografia ADD ID_Region 				[UDT_PK]
+		ALTER TABLE Dimension.Geografia ADD NombreRegion 			[UDT_VarcharCorto]
 	
+		ALTER TABLE Dimension.Geografia ADD ID_Ciudad 				[UDT_PK]
+		ALTER TABLE Dimension.Geografia ADD NombreCiudad 			[UDT_VarcharCorto]
+		ALTER TABLE Dimension.Geografia ADD CodigoPostal 			[UDT_VarcharCorto]
+	--END Dimension.Geografia
+	
+	--Dimension.Clientes
+		ALTER TABLE Dimension.Clientes ADD ID_Cliente 				[UDT_PK]
+		ALTER TABLE Dimension.Clientes ADD PrimerNombre 			[UDT_VarcharCorto]
+		ALTER TABLE Dimension.Clientes ADD SegeundoNombre 			[UDT_VarcharCorto]
+		ALTER TABLE Dimension.Clientes ADD PrimerApellido 			[UDT_VarcharCorto]
+		ALTER TABLE Dimension.Clientes ADD SegundoApellido			[UDT_VarcharCorto]
+		ALTER TABLE Dimension.Clientes ADD Genero 					[UDT_UnCaracter]
+		ALTER TABLE Dimension.Clientes ADD CorreoCliente 			[UDT_VarcharCorto]
+		ALTER TABLE Dimension.Clientes ADD Nacimiento 				[UDT_DateTime] NULL
+		ALTER TABLE Dimension.Clientes ADD Direccion 				[UDT_VarcharLargo] NULL
+	--END Dimension.Clientes
 
---DimClientes
-	ALTER TABLE Dimension.Clientes ADD ID_Cliente [UDT_PK]
-	ALTER TABLE Dimension.Clientes ADD PrimerNombre [UDT_VarcharMediano]
-	ALTER TABLE Dimension.Clientes  ADD SegeundoNombre [UDT_VarcharMediano]
-	ALTER TABLE Dimension.Clientes  ADD PrimerApellido [UDT_VarcharMediano]
-	ALTER TABLE Dimension.Clientes  ADD SegundoApellido [UDT_VarcharMediano]
-	ALTER TABLE Dimension.Clientes  ADD Genero [UDT_UnCaracter]
-	ALTER TABLE Dimension.Clientes  ADD CorreoCliente [UDT_VarcharMediano]
-	ALTER TABLE Dimension.Clientes  ADD Nacimiento DATETIME NOT NULL
-	ALTER TABLE Dimension.Clientes ALTER COLUMN Nacimiento DATETIME NULL;
+	--Dimension.Partes
+		ALTER TABLE Dimension.Partes ADD ID_Parte 					[UDT_VarcharCorto]
+		ALTER TABLE Dimension.Partes ADD NombreParte 				[UDT_VarcharMediano]
+		ALTER TABLE Dimension.Partes ADD DescripcionParte			[UDT_VarcharLargo]
+		ALTER TABLE Dimension.Partes ADD PrecioParte				[UDT_Decimal12.2]
 
---DimPartes
-	ALTER TABLE Dimension.Partes ADD ID_Partes [UDT_VarcharCorto]
-	ALTER TABLE Dimension.Partes ADD ID_Linea [UDT_PK]
-	ALTER TABLE Dimension.Partes ADD ID_Categoria [UDT_PK]
-	ALTER TABLE Dimension.Partes ADD NombrePartes [UDT_VarcharMediano]
-	ALTER TABLE Dimension.Partes ADD NombreLinea [UDT_VarcharMediano]
-	ALTER TABLE Dimension.Partes ADD NombreCategoria [UDT_VarcharMediano]
+		ALTER TABLE Dimension.Partes ADD ID_Categoria				[UDT_PK]
+		ALTER TABLE Dimension.Partes ADD NombreCategoria			[UDT_VarcharMediano]
+		ALTER TABLE Dimension.Partes ADD DescripcionCategoria		[UDT_VarcharMediano]
 
-	--DimAseguradora
+		ALTER TABLE Dimension.Partes ADD ID_Linea 					[UDT_PK]
+		ALTER TABLE Dimension.Partes ADD NombreLinea				[UDT_VarcharMediano]
+		ALTER TABLE Dimension.Partes ADD DescripcionLinea			[UDT_VarcharMediano]
+	--END Dimension.Partes
+
 
 
 --Indices Columnares
 	CREATE NONCLUSTERED COLUMNSTORE INDEX [NCCS-Ordenes] ON [Fact].[Orden] (
-	  [Total_Orden], [CantidadOrden]
+	  [Total_Orden], [CantidadDetalleOrden]
 	) WITH (DROP_EXISTING = OFF, COMPRESSION_DELAY = 0)
 	GO
 

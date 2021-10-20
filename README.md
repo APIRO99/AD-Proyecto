@@ -3,22 +3,22 @@ Se opto por un modelo de estrella para nuestro DWH
 
 
 ## Dimensiones y Fact
-![Diagrama de Dimensiones](/utils/Dimensiones.png)
+![Diagrama de Dimensiones](/utils/DiagramaDimensiones.png)
 Dimensiones creadas dontre de nuestro DWH con sus respectivas tablas
 * Fact
   * Orden
   * Detalle_Orden
   * Cotizacion
   * Cotizacion detalle
-* Status Orden
+* StatusOrden
   * StatusOrden
 * Clientes
   * Clientes
 * Vehiculo
   * Vehiculo
-* Aseguradoras
+* Aseguradora
   * Aseguradoras
-* Planta Reparacion
+* Planta  
   * PlantaReparacion
 * Descuento
   * Descuento
