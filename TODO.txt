@@ -1,0 +1,4 @@
+Procesos ETL que permitan la carga de datos desde. Archivos, Excel, o bases de datos.
+Procesos ETL que creen la estructura de un modelo DWH desnormalizado y orientado al analisis de informacion
+Procesos y tareas para actualizar un cubo
+Implementacion de reportes y tablero de control sobre power BI
