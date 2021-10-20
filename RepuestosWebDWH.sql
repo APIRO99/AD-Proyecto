@@ -179,8 +179,8 @@ DECLARE @EliminarDB BIT = 1;
 			[NombreDescuento] 					[UDT_VarcharMediano] NOT NULL,
 			[PorcentajeDescuento]				[UDT_Decimal2.2] NOT NULL,
 			--Columnas SCD Tipo 2
-			[FechaInicioValidez]  				[UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
-			[FechaFinValidez] 					[UDT_DateTime] NULL,
+			--[FechaInicioValidez]  				[UDT_DateTime] NOT NULL DEFAULT(GETDATE()),
+			--[FechaFinValidez] 					[UDT_DateTime] NULL,
 			--Columnas Auditoria
 			FechaCreacion 						[UDT_DateTime] NULL DEFAULT(GETDATE()),
 			FechaModificacion 					[UDT_DateTime] NULL,

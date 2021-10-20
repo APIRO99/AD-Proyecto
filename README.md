@@ -27,59 +27,59 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 ### Fact
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
-| DateKey 							          |     0    |
-| IDCotizacion 						        |     0    |
-| status 							            |     0    |
-| TipoDocumento 						      |     0    |
-| FechaCreacionCotizacion 			  |     0    |
-| FechaModificacionCotizacion 	  |     0    |
-| ProcesadoPor 						        |     0    |
-| IDAseguradora 						      |     0    |
-| AseguradoraSubsidiaria 			    |     0    |
-| NumeroReclamo 						      |     0    |
-| IDPlantaReparacion 				      |     0    |
-| OrdenRealizada 					        |     0    |
-| CotizacionRealizada 				    |     0    |
-| CotizacionDuplicada 				    |     0    |
-| procurementFolderID 				    |     0    |
-| DireccionEntrega1 					    |     0    |
-| DireccionEntrega2 					    |     0    |
-| MarcadoEntrega 					        |     0    |
-| IDPartner 							        |     0    |
-| CodigoPostal 						        |     0    |
-| LeidoPorPlantaReparacion 		    |     0    |
+| DateKey                         |     0    |
+| IDCotizacion                    |     0    |
+| status                          |     0    |
+| TipoDocumento                   |     0    |
+| FechaCreacionCotizacion         |     0    |
+| FechaModificacionCotizacion     |     0    |
+| ProcesadoPor                    |     0    |
+| IDAseguradora                   |     0    |
+| AseguradoraSubsidiaria          |     0    |
+| NumeroReclamo                   |     0    |
+| IDPlantaReparacion              |     0    |
+| OrdenRealizada                  |     0    |
+| CotizacionRealizada             |     0    |
+| CotizacionDuplicada             |     0    |
+| procurementFolderID             |     0    |
+| DireccionEntrega1               |     0    |
+| DireccionEntrega2               |     0    |
+| MarcadoEntrega                  |     0    |
+| IDPartner                       |     0    |
+| CodigoPostal                    |     0    |
+| LeidoPorPlantaReparacion        |     0    |
 | LeidoPorPlantaReparacionFecha   |     0    |
-| CotizacionReabierta 				    |     0    |
-| EsAseguradora 						      |     0    |
-| CodigoVerificacion 				      |     0    |
-| IDClientePlantaReparacion 			|     0    |
-| FechaCreacionRegistro 				  |     0    |
-| IDRecotizacion 					        |     0    |
-| PartnerConfirmado 					    |     0    |
-| WrittenBy 							        |     0    |
-| SeguroValidado 					        |     0    |
-| FechaCaptura 						        |     0    |
-| IDOrden 							          |     0    |
-| Ruta 								            |     0    |
-| FechaLimiteRuta 					      |     0    |
-| TelefonoEntrega 					      |     0    |
-| NumLinea 							          |     0    |
-| OETipoParte 						        |     0    |
-| AltPartNum 						          |     0    |
-| AltTipoParte 						        |     0    |
-| ciecaTipoParte 					        |     0    |
-| partDescripcion 					      |     0    |
-| CantidadCotizacionDetalle 			|     0    |
-| PrecioListaOnRO 					      |     0    |
-| PrecioNetoOnRO 					        |     0    |
-| NecesitadoParaFecha 				    |     0    |
-| VehiculoIDCotizacionDetalle 		|     0    |
-| FechaCreacion 						      |     0    |
-| FechaModificacion 					    |     0    |
-| UsuarioCreacion 					      |     0    |
-| UsuarioModificacion 				    |     0    |
-| ID_Batch 							          |     0    |
-| ID_SourceSystem 					      |     0    |
+| CotizacionReabierta             |     0    |
+| EsAseguradora                   |     0    |
+| CodigoVerificacion              |     0    |
+| IDClientePlantaReparacion       |     0    |
+| FechaCreacionRegistro           |     0    |
+| IDRecotizacion                  |     0    |
+| PartnerConfirmado               |     0    |
+| WrittenBy                       |     0    |
+| SeguroValidado                  |     0    |
+| FechaCaptura                    |     0    |
+| IDOrden                         |     0    |
+| Ruta                            |     0    |
+| FechaLimiteRuta                 |     0    |
+| TelefonoEntrega                 |     0    |
+| NumLinea                        |     0    |
+| OETipoParte                     |     0    |
+| AltPartNum                      |     0    |
+| AltTipoParte                    |     0    |
+| ciecaTipoParte                  |     0    |
+| partDescripcion                 |     0    |
+| CantidadCotizacionDetalle       |     0    |
+| PrecioListaOnRO                 |     0    |
+| PrecioNetoOnRO                  |     0    |
+| NecesitadoParaFecha             |     0    |
+| VehiculoIDCotizacionDetalle     |     0    |
+| FechaCreacion                   |     0    |
+| FechaModificacion               |     0    |
+| UsuarioCreacion                 |     0    |
+| UsuarioModificacion             |     0    |
+| ID_Batch                        |     0    |
+| ID_SourceSystem                 |     0    |
 | ID_Orden                        |     0    |
 | ID_Cliente                      |     0    |
 | ID_Ciudad                       |     0    |
@@ -131,15 +131,35 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 ### Descuento
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
+| ID_Descuento                    |     0    |
+| NombreDescuento                 |     1    |
+| PorcentajeDescuento             |     1    |
+	
 
 ### Geografia
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
+| ID_Pais                         |     0    |
+| NombrePais                      |     0    |
+| ID_Region                       |     0    |
+| NombreRegion                    |     0    |
+| ID_Ciudad                       |     0    |
+| NombreCiudad                    |     0    |
+| CodigoPostal                    |     2    |
 
 ### Partes
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
-
+| ID_Parte                        |     0    |
+| NombreParte                     |     0    |
+| DescripcionParte                |     0    |
+| PrecioParte                     |     0    |
+| ID_Categoria                    |     0    |
+| NombreCategoria                 |     0    |
+| DescripcionCategoria            |     0    |
+| ID_Linea                        |     0    |
+| NombreLinea                     |     0    |
+| DescripcionLinea                |     2    |
 
 ### Origen
 
