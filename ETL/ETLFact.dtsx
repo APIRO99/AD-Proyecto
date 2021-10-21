@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{BC33E8A8-05DE-41EF-9C17-A7083DFECC57}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{0AEE9659-056F-4363-9F79-1115C8B606F6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -918,7 +918,7 @@ WHERE ((Fecha_Orden&gt;?))</property>
           PanelSize="340,332"
           Size="340,375"
           Id="Package\Carga de Facts"
-          TopLeft="327,76" />
+          TopLeft="318,77" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

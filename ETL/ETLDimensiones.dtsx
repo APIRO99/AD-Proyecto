@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{904B4FE3-0481-449F-9058-6318FD46F810}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{506BE25C-EF06-4450-BDE9-814DFB3345F5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -13662,24 +13662,24 @@ FROM DBO.Vehiculo as VEHICULO</property>
         <NodeLayout
           Size="163,42"
           Id="Package\Carga de Dimensiones\Dimension Origen"
-          TopLeft="78,728" />
+          TopLeft="85,658" />
         <NodeLayout
           Size="182,42"
           Id="Package\Carga de Dimensiones\Dimension Geografia"
-          TopLeft="75,562" />
+          TopLeft="78,518" />
         <NodeLayout
           Size="161,42"
           Id="Package\Carga de Dimensiones\Dimension Partes"
-          TopLeft="80,643" />
+          TopLeft="88,591" />
         <NodeLayout
           Size="181,42"
           Id="Package\Carga de Dimensiones\Dimension Descuento"
-          TopLeft="76,476" />
+          TopLeft="77,443" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="372,834"
-          Size="372,877"
+          PanelSize="372,783"
+          Size="372,826"
           Id="Package\Carga de Dimensiones"
           TopLeft="60,60" />
       </GraphLayout>
@@ -15589,7 +15589,7 @@ FROM DBO.Vehiculo as VEHICULO</property>
           Id="Package\Carga de Dimensiones\Dimension Geografia\Columna derivada 1"
           TopLeft="157.5,617.5" />
         <NodeLayout
-          Size="216,42"
+          Size="209,42"
           Id="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension"
           TopLeft="136,209.5" />
         <NodeLayout
@@ -15654,79 +15654,67 @@ FROM DBO.Vehiculo as VEHICULO</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[New Output]"
-          TopLeft="278.666666666667,251.5">
+          TopLeft="270.416666666667,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-11.8333333333333,264"
+              EndConnector="0,264"
               Start="0,0"
-              End="-11.8333333333333,256.5">
+              End="0,256.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,127.415017789152" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,127.415017789152"
-                    Point2="0,131.415017789152"
-                    Point3="-4,131.415017789152" />
-                  <mssgle:LineSegment
-                    End="-7.83333333333331,131.415017789152" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-7.83333333333331,131.415017789152"
-                    Point2="-11.8333333333333,131.415017789152"
-                    Point3="-11.8333333333333,135.415017789152" />
-                  <mssgle:LineSegment
-                    End="-11.8333333333333,256.5" />
+                    End="0,256.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-33.0080533854167,136.415017789152,54.1827734375,11.43359375"
+              BoundingBox="-27.09138671875,122.533203125,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Historical Attribute Inserts Output]"
-          TopLeft="209.333333333333,251.5">
+          TopLeft="207,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-108.333333333333,60"
+              EndConnector="-106,60"
               Start="0,0"
-              End="-108.333333333333,52.5">
+              End="-106,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2647058823529" />
+                    End="0,20.2735042735043" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2647058823529"
-                    Point2="0,24.2647058823529"
-                    Point3="-4,24.2647058823529" />
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
                   <mssgle:LineSegment
-                    End="-104.333333333333,24.2647058823529" />
+                    End="-102,24.2735042735043" />
                   <mssgle:CubicBezierSegment
-                    Point1="-104.333333333333,24.2647058823529"
-                    Point2="-108.333333333333,24.2647058823529"
-                    Point3="-108.333333333333,28.2647058823529" />
+                    Point1="-102,24.2735042735043"
+                    Point2="-106,24.2735042735043"
+                    Point3="-106,28.2735042735043" />
                   <mssgle:LineSegment
-                    End="-108.333333333333,52.5" />
+                    End="-106,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-129.223053385417,29.2647058823529,150.1127734375,11.609375"
+              BoundingBox="-128.05638671875,29.2735042735043,150.1127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Derived Column Output]"
-          TopLeft="244,149.5">
+          TopLeft="242.25,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
