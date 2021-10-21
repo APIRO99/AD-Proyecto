@@ -20,20 +20,44 @@
   </Cubes>
   <Dimensions>
     <ProjectItem>
-      <Name>Clientes.dim</Name>
-      <FullPath>Clientes.dim</FullPath>
+      <Name>Descuento.dim</Name>
+      <FullPath>Descuento.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Planta.dim</Name>
+      <FullPath>Planta.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Status Orden.dim</Name>
+      <FullPath>Status Orden.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vehiculo.dim</Name>
+      <FullPath>Vehiculo.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Partes.dim</Name>
       <FullPath>Partes.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>Fecha.dim</Name>
+      <FullPath>Fecha.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Aseguradora.dim</Name>
+      <FullPath>Aseguradora.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Clientes.dim</Name>
+      <FullPath>Clientes.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>Geografia.dim</Name>
       <FullPath>Geografia.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Fecha.dim</Name>
-      <FullPath>Fecha.dim</FullPath>
+      <Name>Origen.dim</Name>
+      <FullPath>Origen.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>

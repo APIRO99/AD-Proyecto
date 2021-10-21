@@ -1,6 +1,6 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="a33ab571-3446-4312-bb5f-15d79f6292c0" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
-  <ID>Clientes</ID>
-  <Name>Clientes</Name>
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="9ce60ec8-ac96-4e56-9e7e-877a3194dc14" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Aseguradora</ID>
+  <Name>Aseguradora</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
   <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
   <Annotations>
@@ -42,28 +42,28 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="b247bb52-035a-4919-af2e-61178e7d0c9a">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="ed679c36-a2fd-429c-a44b-4bede2967d30">
     <DataSourceViewID>Repuestos Web DWH</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="673c64c5-83f5-4bb9-a39f-58f3c2183841">
+  <ErrorConfiguration dwd:design-time-name="5b7b4670-2f10-4c82-89c0-8ceffa65c304">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="a52998a1-73ad-4481-994d-0e5a3da6303b">
-      <ID>SK Clientes</ID>
-      <Name>SK Clientes</Name>
+    <Attribute dwd:design-time-name="083d185c-fe07-47cc-9215-5490d5111ab1">
+      <ID>SK Aseguradora</ID>
+      <Name>SK Aseguradora</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="b6cbf264-05cd-49e7-8150-5cf7aafb5a8f">
+        <KeyColumn dwd:design-time-name="f16b71e3-c396-4c90-811d-162b4b4c811d">
           <DataType>Integer</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="7ef6ce59-6e32-4c23-86e4-a91776a493c0">
-            <TableID>Dimension_Clientes</TableID>
-            <ColumnID>SK_Clientes</ColumnID>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="18a94a25-128e-430d-8f9c-6c4440d54f77">
+            <TableID>Dimension_Aseguradora</TableID>
+            <ColumnID>SK_Aseguradora</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>

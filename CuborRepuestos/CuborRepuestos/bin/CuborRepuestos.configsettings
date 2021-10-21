@@ -13,16 +13,34 @@
     </DataSources>
     <Dimensions>
       <Dimension>
-        <ID>Clientes</ID>
+        <ID>Descuento</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Planta</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Status Orden</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Vehiculo</ID>
       </Dimension>
       <Dimension>
         <ID>Partes</ID>
       </Dimension>
       <Dimension>
+        <ID>Fecha</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Aseguradora</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Clientes</ID>
+      </Dimension>
+      <Dimension>
         <ID>Geografia</ID>
       </Dimension>
       <Dimension>
-        <ID>Fecha</ID>
+        <ID>Origen</ID>
       </Dimension>
     </Dimensions>
     <Cubes>
@@ -34,6 +52,14 @@
             <Partitions>
               <Partition>
                 <ID>Orden</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>Partes</ID>
+            <Partitions>
+              <Partition>
+                <ID>Partes</ID>
               </Partition>
             </Partitions>
           </MeasureGroup>
