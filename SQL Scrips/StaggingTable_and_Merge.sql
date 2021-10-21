@@ -2,8 +2,7 @@ USE [RepuestosWebDWH]
 GO
 
 --Creamos tabla para log de fact batches
-CREATE TABLE FactLog
-(
+CREATE TABLE FactLog (
 	ID_Batch UNIQUEIDENTIFIER DEFAULT(NEWID()),
 	FechaEjecucion DATETIME DEFAULT(GETDATE()),
 	NuevosRegistros INT,
@@ -18,29 +17,74 @@ ALTER TABLE Fact.Orden ADD CONSTRAINT [FK_IDBatch] FOREIGN KEY (ID_Batch)
 REFERENCES Factlog(ID_Batch)
 go
 
-create schema [staging]
+CREATE SCHEMA [staging]
 go
 
 DROP TABLE IF EXISTS [staging].[Orden]
 GO
 
 CREATE TABLE [staging].[Orden](
-				ID_Orden INT NULL,
-				ID_Parte varchar(50) null,
-				ID_Ciudad INT NULL,
-				ID_Cliente INT NULL,
-				ID_DetalleOrden INT NULL,
-				ID_StatusOrden INT NULL,
-				Total_Orden [decimal](12, 2) NULL,
-				CantidadOrden INT NULL,
-				StatusOrden [varchar](100) NULL,
-				FechaOrden DATETIME
-
+	[IDOrden]                            [dbo].[UDT_Int] PRIMARY KEY,
+	[IDCotizacion]                       [dbo].[UDT_PK] NOT NULL,
+	[status]                             [dbo].[UDT_VarcharCorto] NULL,
+	[TipoDocumento]                      [dbo].[UDT_VarcharCorto] NULL,
+	[FechaCreacionCotizacion]            [dbo].[UDT_DateTime] NULL,
+	[FechaModificacionCotizacion]        [dbo].[UDT_DateTime] NULL,
+	[ProcesadoPor]                       [dbo].[UDT_VarcharCorto] NULL,
+	[IDAseguradora]                      [dbo].[UDT_Int] NULL,
+	[AseguradoraSubsidiaria]             [dbo].[UDT_VarcharCorto] NULL,
+	[NumeroReclamo]                      [dbo].[UDT_VarcharCorto] NULL,
+	[IDPlantaReparacion]                 [dbo].[UDT_VarcharCorto] NULL,
+	[OrdenRealizada]                     [dbo].[UDT_Bit] NULL,
+	[CotizacionRealizada]                [dbo].[UDT_Bit] NULL,
+	[CotizacionDuplicada]                [dbo].[UDT_Bit] NULL,
+	[procurementFolderID]                [dbo].[UDT_VarcharCorto] NULL,
+	[DireccionEntrega1]                  [dbo].[UDT_VarcharCorto] NULL,
+	[DireccionEntrega2]                  [dbo].[UDT_VarcharCorto] NULL,
+	[MarcadoEntrega]                     [dbo].[UDT_Bit] NULL,
+	[IDPartner]                          [dbo].[UDT_VarcharCorto] NULL,
+	[CodigoPostal]                       [dbo].[UDT_VarcharCorto] NULL,
+	[LeidoPorPlantaReparacion]           [dbo].[UDT_Bit] NOT NULL,
+	[LeidoPorPlantaReparacionFecha]      [dbo].[UDT_DateTime] NULL,
+	[CotizacionReabierta]                [dbo].[UDT_Bit] NOT NULL,
+	[EsAseguradora]                      [dbo].[UDT_Bit] NULL,
+	[CodigoVerificacion]                 [dbo].[UDT_VarcharCorto] NULL,
+	[IDClientePlantaReparacion]          [dbo].[UDT_VarcharCorto] NULL,
+	[FechaCreacionRegistro]              [dbo].[UDT_DateTime] NOT NULL,
+	[IDRecotizacion]                     [dbo].[UDT_VarcharCorto] NULL,
+	[PartnerConfirmado]                  [dbo].[UDT_Bit] NOT NULL,
+	[WrittenBy]                          [dbo].[UDT_VarcharCorto] NULL,
+	[SeguroValidado]                     [dbo].[UDT_Bit] NOT NULL,
+	[FechaCaptura]                       [dbo].[UDT_DateTime] NULL,
+	[Ruta]                               [dbo].[UDT_VarcharLargo] NULL,
+	[FechaLimiteRuta]                    [dbo].[UDT_VarcharCorto] NULL,
+	[TelefonoEntrega]                    [dbo].[UDT_VarcharCorto] NULL,
+	[NumLinea]                           [dbo].[UDT_VarcharCorto] NOT NULL,
+	[OETipoParte]                        [dbo].[UDT_VarcharCorto] NULL,
+	[AltPartNum]                         [dbo].[UDT_VarcharCorto] NULL,
+	[AltTipoParte]                       [dbo].[UDT_VarcharCorto] NULL,
+	[ciecaTipoParte]                     [dbo].[UDT_VarcharCorto] NULL,
+	[partDescripcion]                    [dbo].[UDT_VarcharMediano] NULL,
+	[CantidadCotizacionDetalle]          [dbo].[UDT_Int] NULL,
+	[PrecioListaOnRO]                    [dbo].[UDT_VarcharCorto] NULL,
+	[PrecioNetoOnRO]                     [dbo].[UDT_VarcharCorto] NULL,
+	[NecesitadoParaFecha]                [dbo].[UDT_DateTime] NULL,
+	[VehiculoIDCotizacionDetalle]        [dbo].[UDT_Int] NULL,
+	[ID_Orden]                           [dbo].[UDT_PK] NULL,
+	[ID_Cliente]                         [dbo].[UDT_PK] NULL,
+	[ID_Ciudad]                          [dbo].[UDT_PK] NULL,
+	[ID_StatusOrden]                     [dbo].[UDT_PK] NULL,
+	[Total_Orden]                        [dbo].[UDT_Decimal12.2] NULL,
+	[Fecha_Orden]                        [dbo].[UDT_DateTime] NULL,
+	[NumeroOrden]                        [dbo].[UDT_VarcharCorto] NULL,
+	[ID_DetalleOrden]                    [dbo].[UDT_PK] NULL,
+	[ID_Parte]                           [dbo].[UDT_VarcharCorto] NULL,
+	[ID_Descuento]                       [dbo].[UDT_PK] NULL,
+	[CantidadDetalleOrden]               [dbo].[UDT_Int] NULL,
+	[VehiculoIDDetalleOrden]             [dbo].[UDT_PK] NULL,
 ) ON [PRIMARY]
 
 --select para el ssis--
---Select ID_Parte from staging.Orden
-
 --Select O.ID_Orden,
 --		O.ID_Ciudad as ID_Geografia,
 --		O.ID_Ciudad,
