@@ -179,12 +179,12 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 ### Geografia
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
-| ID_Pais                         |     0    |
-| NombrePais                      |     0    |
-| ID_Region                       |     0    |
-| NombreRegion                    |     0    |
-| ID_Ciudad                       |     0    |
-| NombreCiudad                    |     0    |
+| ID_Pais                         |     1    |
+| NombrePais                      |     1    |
+| ID_Region                       |     1    |
+| NombreRegion                    |     1    |
+| ID_Ciudad                       |     1    |
+| NombreCiudad                    |     1    |
 | CodigoPostal                    |     2    |
 
 ### Partes

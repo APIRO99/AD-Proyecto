@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{4DD70B66-FC42-4C34-B691-9FCE0C2619D8}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{75B1BA0D-42F2-4664-8778-36AF9AA6AABD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2232,7 +2232,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{5591E054-277F-43D9-9152-9F84096760B7}"
+              SQLTask:Connection="{DA7F63C9-091E-4661-9A16-2D5945BE89D2}"
               SQLTask:SqlStatementSource="TRUNCATE TABLE [staging].[Orden]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>

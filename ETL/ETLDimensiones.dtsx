@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{CBBF9E31-8C98-4344-9133-B74CB69207F1}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{4CF416CD-B77A-4FCF-99B4-697C71E5546D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4426,14 +4426,14 @@ dbo.Descuento AS DISCOUNT</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[CodigoPostalSTR]"
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[STRCodigoPostal]"
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Cálculo"
                           errorRowDisposition="FailComponent"
                           length="50"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[CodigoPostalSTR]"
-                          name="CodigoPostalSTR"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[STRCodigoPostal]"
+                          name="STRCodigoPostal"
                           truncationRowDisposition="FailComponent">
                           <properties>
                             <property
@@ -4495,7 +4495,7 @@ dbo.Descuento AS DISCOUNT</property>
                       description="Comando SQL para ejecutar."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [Dimension].[Geografia] SET [FechaFinValidez] = ? WHERE [ID_Pais] = ? AND [FechaFinValidez] IS NULL</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [Dimension].[Geografia] SET [FechaFinValidez] = ? WHERE [ID_Ciudad] = ? AND [FechaFinValidez] IS NULL</property>
                     <property
                       dataType="System.Int32"
                       description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -4518,11 +4518,11 @@ dbo.Descuento AS DISCOUNT</property>
                       name="Entrada de comando de OLE DB">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[ID_Pais]"
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[ID_Ciudad]"
                           cachedDataType="i4"
-                          cachedName="ID_Pais"
+                          cachedName="ID_Ciudad"
                           externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[ID_Pais]" />
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[ID_Ciudad]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[FechaFinValidez]"
                           cachedDataType="dbTimeStamp"
@@ -4585,6 +4585,500 @@ dbo.Descuento AS DISCOUNT</property>
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="Comando de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+                  description="Ejecuta una instrucción SQL para cada fila de un flujo de datos. Por ejemplo, se usa para llamar al procedimiento almacenado de configuración de nuevo empleado para cada fila de la tabla de nuevos empleados. Nota: la ejecución de una instrucción SQL para cada fila de un flujo de datos de gran tamaño puede tardar mucho tiempo."
+                  name="Comando de OLE DB 1"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [Dimension].[Geografia] SET [ID_Batch] = ?,[ID_Region] = ?,[ID_SourceSystem] = ?,[NombreCiudad] = ?,[NombrePais] = ?,[NombreRegion] = ? WHERE [ID_Ciudad] = ? AND [FechaFinValidez] IS NULL</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.RepuestosWebDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.RepuestosWebDWH]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB]"
+                      errorOrTruncationOperation="Ejecución de comando"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrada de comando de OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[ID_Batch]"
+                          cachedDataType="guid"
+                          cachedName="ID_Batch"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_Batch]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[ID_Ciudad]"
+                          cachedDataType="i4"
+                          cachedName="ID_Ciudad"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_6]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[ID_Ciudad]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[ID_Region]"
+                          cachedDataType="i4"
+                          cachedName="ID_Region"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[ID_Region]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[ID_SourceSystem]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_SourceSystem"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[NombreCiudad]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreCiudad"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[NombreCiudad]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[NombrePais]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombrePais"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[NombrePais]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].Columns[NombreRegion]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreRegion"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[NombreRegion]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                          dataType="guid"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                          dataType="i4"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_5">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_6]"
+                          dataType="i4"
+                          name="Param_6">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Outputs[Salida de comando de OLE DB]"
+                      exclusionGroup="1"
+                      name="Salida de comando de OLE DB"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Outputs[Salida de error de comando de OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de comando de OLE DB"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta"
+                  componentClassID="Microsoft.SCD"
+                  contactInfo="Dimensión de variación lenta;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;3"
+                  description="Actualiza una dimensión del almacenamiento de datos de SQL Server Analysis Services. Actualiza los registros de dimensión existentes e inserta los registros de dimensión que faltan. Por ejemplo, se actualiza la tabla DimProduct de la base de datos OLAP AdventureWorksDW con datos procedentes de la tabla Products de la base de datos OLTP AdventureWorks."
+                  name="Dimensión de variación lenta"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la instrucción SELECT utilizada para crear un conjunto de filas de esquema."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CodigoPostal], [ID_Batch], [ID_Ciudad], [ID_Region], [ID_SourceSystem], [NombreCiudad], [NombrePais], [NombreRegion],[FechaInicioValidez],[FechaFinValidez] FROM [Dimension].[Geografia]</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la cláusula WHERE de la instrucción SELECT que selecciona la fila actual de entre filas con claves empresariales idénticas."
+                      name="CurrentRowWhere">[FechaInicioValidez] IS NOT NULL AND [FechaFinValidez] IS NULL</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si las actualizaciones de atributos históricos se dirigen a la salida de transformación para actualizaciones de atributos variables."
+                      name="UpdateChangingAttributeHistory">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si se produce un error de transformación cuando las columnas con atributos fijos contienen cambios."
+                      name="FailOnFixedAttributeChange">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica el nombre de columna para el miembro deducido."
+                      name="InferredMemberIndicator"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si se detectan las actualizaciones de miembros deducidos."
+                      name="EnableInferredMember">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si se produce un error de transformación cuando se produce un error de búsqueda de un registro existente."
+                      name="FailOnLookupFailure">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica que todas las filas de la entrada sean nuevas o que la transformación detecte el tipo de cambio."
+                      name="IncomingRowChangeType"
+                      typeConverter="IncomingRowChangeType">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Connections[LookupConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.RepuestosWebDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.RepuestosWebDWH]"
+                      description="Define la conexión que se debe usar para búsquedas en la tabla de dimensiones"
+                      name="LookupConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]"
+                      name="Entrada de dimensión de variación lenta">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[STRCodigoPostal]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="STRCodigoPostal"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[CodigoPostal]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[STRCodigoPostal]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">3</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[ID_Batch]"
+                          cachedDataType="guid"
+                          cachedName="ID_Batch"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_Batch]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_Batch]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[ID_Ciudad]"
+                          cachedDataType="i4"
+                          cachedName="ID_Ciudad"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_Ciudad]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[ID_Ciudad]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[ID_Region]"
+                          cachedDataType="i4"
+                          cachedName="ID_Region"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_Region]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[ID_Region]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[ID_SourceSystem]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_SourceSystem"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_SourceSystem]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[NombreCiudad]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreCiudad"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreCiudad]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[NombreCiudad]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[NombrePais]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombrePais"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombrePais]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[NombrePais]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].Columns[NombreRegion]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="NombreRegion"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreRegion]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[NombreRegion]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[CodigoPostal]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="CodigoPostal" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_Batch]"
+                          dataType="guid"
+                          name="ID_Batch" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_Ciudad]"
+                          dataType="i4"
+                          name="ID_Ciudad" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_Region]"
+                          dataType="i4"
+                          name="ID_Region" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[ID_SourceSystem]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ID_SourceSystem" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreCiudad]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NombreCiudad" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombrePais]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NombrePais" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[NombreRegion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="NombreRegion" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[FechaInicioValidez]"
+                          dataType="dbTimeStamp"
+                          name="FechaInicioValidez" />
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta].ExternalColumns[FechaFinValidez]"
+                          dataType="dbTimeStamp"
+                          name="FechaFinValidez" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Outputs[Salida sin cambios]"
+                      description="Filas sin cambios"
+                      exclusionGroup="1"
+                      name="Salida sin cambios"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Outputs[Nueva salida]"
+                      description="Nuevas filas"
+                      exclusionGroup="1"
+                      name="Nueva salida"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Outputs[Salida de atributo fijo]"
+                      description="Filas con cambios en columnas etiquetadas FixedAttribute"
+                      exclusionGroup="1"
+                      name="Salida de atributo fijo"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Outputs[Salida de actualizaciones de atributos variables]"
+                      description="Estas filas contienen información nueva para cambios de columnas ChangingAttribute (tipo 1)"
+                      exclusionGroup="1"
+                      name="Salida de actualizaciones de atributos variables"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Outputs[Salida de inserciones de atributos históricos]"
+                      description="Los cambios de HistoricalAttribute (tipo 2) crean estas nuevas filas"
+                      exclusionGroup="2"
+                      name="Salida de inserciones de atributos históricos"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Outputs[Salida de actualizaciones de miembros deducidos]"
+                      description="Información para actualizar fila de dimensión inicial sin rellenar"
+                      exclusionGroup="1"
+                      name="Salida de actualizaciones de miembros deducidos"
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]">
                       <externalMetadataColumns />
                     </output>
                   </outputs>
@@ -4971,13 +5465,13 @@ INNER JOIN dbo.Pais AS COUNTRY ON REG.ID_Pais = COUNTRY.ID_Pais</property>
                           externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCiudad]"
                           lineageId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[NombreCiudad]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[CodigoPostalSTR]"
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[STRCodigoPostal]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
-                          cachedName="CodigoPostalSTR"
+                          cachedName="STRCodigoPostal"
                           externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoPostal]"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[CodigoPostalSTR]" />
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[STRCodigoPostal]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -5083,304 +5577,6 @@ INNER JOIN dbo.Pais AS COUNTRY ON REG.ID_Pais = COUNTRY.ID_Pais</property>
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension"
-                  componentClassID="Microsoft.SCD"
-                  contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
-                  description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
-                  name="Slowly Changing Dimension"
-                  version="3">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the SELECT statement used to create a schema rowset."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CodigoPostal], [ID_Batch], [ID_Ciudad], [ID_Pais], [ID_Region], [ID_SourceSystem], [NombreCiudad], [NombrePais], [NombreRegion],[FechaInicioValidez],[FechaFinValidez] FROM [Dimension].[Geografia]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
-                      name="CurrentRowWhere">[FechaInicioValidez] IS NOT NULL AND [FechaFinValidez] IS NULL</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
-                      name="UpdateChangingAttributeHistory">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
-                      name="FailOnFixedAttributeChange">true</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the column name for the inferred member."
-                      name="InferredMemberIndicator"></property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether inferred member updates are detected."
-                      name="EnableInferredMember">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the transformation fails when a lookup of an existing record fails."
-                      name="FailOnLookupFailure">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies that all rows in the input are new or the transformation detects the change type."
-                      name="IncomingRowChangeType"
-                      typeConverter="IncomingRowChangeType">1</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Connections[LookupConnection]"
-                      connectionManagerID="Package.ConnectionManagers[localhost.RepuestosWebDWH]"
-                      connectionManagerRefId="Package.ConnectionManagers[localhost.RepuestosWebDWH]"
-                      description="Defines the connection to use for lookups in the dimension table"
-                      name="LookupConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
-                      name="Slowly Changing Dimension Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CodigoPostalSTR]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="CodigoPostalSTR"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CodigoPostal]"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[CodigoPostalSTR]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              name="ColumnType"
-                              typeConverter="ColumnType">3</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_Batch]"
-                          cachedDataType="guid"
-                          cachedName="ID_Batch"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Batch]"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_Batch]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              name="ColumnType"
-                              typeConverter="ColumnType">4</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_Ciudad]"
-                          cachedDataType="i4"
-                          cachedName="ID_Ciudad"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Ciudad]"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[ID_Ciudad]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              name="ColumnType"
-                              typeConverter="ColumnType">4</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_Pais]"
-                          cachedDataType="i4"
-                          cachedName="ID_Pais"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Pais]"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[ID_Pais]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              name="ColumnType"
-                              typeConverter="ColumnType">1</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_Region]"
-                          cachedDataType="i4"
-                          cachedName="ID_Region"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Region]"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[ID_Region]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              name="ColumnType"
-                              typeConverter="ColumnType">4</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_SourceSystem]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="ID_SourceSystem"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_SourceSystem]"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              name="ColumnType"
-                              typeConverter="ColumnType">4</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[NombreCiudad]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="100"
-                          cachedName="NombreCiudad"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombreCiudad]"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[NombreCiudad]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              name="ColumnType"
-                              typeConverter="ColumnType">4</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[NombrePais]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="100"
-                          cachedName="NombrePais"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombrePais]"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[NombrePais]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              name="ColumnType"
-                              typeConverter="ColumnType">4</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[NombreRegion]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="100"
-                          cachedName="NombreRegion"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombreRegion]"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output].Columns[NombreRegion]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              name="ColumnType"
-                              typeConverter="ColumnType">4</property>
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CodigoPostal]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="CodigoPostal" />
-                        <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Batch]"
-                          dataType="guid"
-                          name="ID_Batch" />
-                        <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Ciudad]"
-                          dataType="i4"
-                          name="ID_Ciudad" />
-                        <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Pais]"
-                          dataType="i4"
-                          name="ID_Pais" />
-                        <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Region]"
-                          dataType="i4"
-                          name="ID_Region" />
-                        <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_SourceSystem]"
-                          codePage="1252"
-                          dataType="str"
-                          length="20"
-                          name="ID_SourceSystem" />
-                        <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombreCiudad]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="NombreCiudad" />
-                        <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombrePais]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="NombrePais" />
-                        <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NombreRegion]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="NombreRegion" />
-                        <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FechaInicioValidez]"
-                          dataType="dbTimeStamp"
-                          name="FechaInicioValidez" />
-                        <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FechaFinValidez]"
-                          dataType="dbTimeStamp"
-                          name="FechaFinValidez" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Outputs[Unchanged Output]"
-                      description="Unchanged rows"
-                      exclusionGroup="1"
-                      name="Unchanged Output"
-                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Outputs[New Output]"
-                      description="New rows"
-                      exclusionGroup="1"
-                      name="New Output"
-                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
-                      description="Rows with changes in columns tagged FixedAttribute"
-                      exclusionGroup="1"
-                      name="Fixed Attribute Output"
-                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
-                      description="These rows contain new information for ChangingAttribute (Type 1) column changes"
-                      exclusionGroup="1"
-                      name="Changing Attribute Updates Output"
-                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
-                      description="HistoricalAttribute (Type 2) changes result in these new rows"
-                      exclusionGroup="2"
-                      name="Historical Attribute Inserts Output"
-                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
-                      description="Information to update unpopulated initial dimension row"
-                      exclusionGroup="1"
-                      name="Inferred Member Updates Output"
-                      synchronousInputId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
                       <externalMetadataColumns />
                     </output>
                   </outputs>
@@ -5523,18 +5719,18 @@ INNER JOIN dbo.Pais AS COUNTRY ON REG.ID_Pais = COUNTRY.ID_Pais</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[CodigoPostalSTR]"
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[STRCodigoPostal]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
-                          cachedName="CodigoPostalSTR"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[CodigoPostalSTR]">
+                          cachedName="STRCodigoPostal"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[STRCodigoPostal]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Id. de linaje de columna de salida"
-                              name="OutputColumnLineageID">#{Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[CodigoPostalSTR]}</property>
+                              name="OutputColumnLineageID">#{Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[STRCodigoPostal]}</property>
                           </properties>
                         </inputColumn>
                       </inputColumns>
@@ -5671,18 +5867,18 @@ INNER JOIN dbo.Pais AS COUNTRY ON REG.ID_Pais = COUNTRY.ID_Pais</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[CodigoPostalSTR]"
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[STRCodigoPostal]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
-                          cachedName="CodigoPostalSTR"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[CodigoPostalSTR]">
+                          cachedName="STRCodigoPostal"
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output].Columns[STRCodigoPostal]">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.Int32"
                               description="Id. de linaje de columna de salida"
-                              name="OutputColumnLineageID">#{Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[CodigoPostalSTR]}</property>
+                              name="OutputColumnLineageID">#{Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[STRCodigoPostal]}</property>
                           </properties>
                         </inputColumn>
                       </inputColumns>
@@ -5755,12 +5951,12 @@ INNER JOIN dbo.Pais AS COUNTRY ON REG.ID_Pais = COUNTRY.ID_Pais</property>
                           lineageId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ID_SourceSystem]"
                           name="ID_SourceSystem" />
                         <outputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[CodigoPostalSTR]"
+                          refId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[STRCodigoPostal]"
                           codePage="1252"
                           dataType="str"
                           length="50"
-                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[CodigoPostalSTR]"
-                          name="CodigoPostalSTR" />
+                          lineageId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[STRCodigoPostal]"
+                          name="STRCodigoPostal" />
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -5770,24 +5966,24 @@ INNER JOIN dbo.Pais AS COUNTRY ON REG.ID_Pais = COUNTRY.ID_Pais</property>
               <paths>
                 <path
                   refId="Package\Carga de Dimensiones\Dimension Geografia.Paths[Derived Column Output]"
-                  endId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  endId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Inputs[Entrada de dimensión de variación lenta]"
                   name="Derived Column Output"
                   startId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Outputs[Derived Column Output]" />
                 <path
-                  refId="Package\Carga de Dimensiones\Dimension Geografia.Paths[Historical Attribute Inserts Output]"
-                  endId="Package\Carga de Dimensiones\Dimension Geografia\Columna derivada.Inputs[Entrada de columna derivada]"
-                  name="Historical Attribute Inserts Output"
-                  startId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
-                <path
-                  refId="Package\Carga de Dimensiones\Dimension Geografia.Paths[New Output]"
+                  refId="Package\Carga de Dimensiones\Dimension Geografia.Paths[Nueva salida]"
                   endId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Inputs[Entrada de Unión de todo 1]"
-                  name="New Output"
-                  startId="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension.Outputs[New Output]" />
+                  name="Nueva salida"
+                  startId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Outputs[Nueva salida]" />
                 <path
                   refId="Package\Carga de Dimensiones\Dimension Geografia.Paths[OLE DB Source Output]"
                   endId="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje.Inputs[Derived Column Input]"
                   name="OLE DB Source Output"
                   startId="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de actualizaciones de atributos variables]"
+                  endId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1.Inputs[Entrada de comando de OLE DB]"
+                  name="Salida de actualizaciones de atributos variables"
+                  startId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Outputs[Salida de actualizaciones de atributos variables]" />
                 <path
                   refId="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de columna derivada]"
                   endId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
@@ -5803,6 +5999,11 @@ INNER JOIN dbo.Pais AS COUNTRY ON REG.ID_Pais = COUNTRY.ID_Pais</property>
                   endId="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo.Inputs[Entrada de Unión de todo 2]"
                   name="Salida de comando de OLE DB"
                   startId="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB.Outputs[Salida de comando de OLE DB]" />
+                <path
+                  refId="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de inserciones de atributos históricos]"
+                  endId="Package\Carga de Dimensiones\Dimension Geografia\Columna derivada.Inputs[Entrada de columna derivada]"
+                  name="Salida de inserciones de atributos históricos"
+                  startId="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta.Outputs[Salida de inserciones de atributos históricos]" />
                 <path
                   refId="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de Unión de todo 1]"
                   endId="Package\Carga de Dimensiones\Dimension Geografia\Columna derivada 1.Inputs[Entrada de columna derivada]"
@@ -13652,7 +13853,7 @@ FROM DBO.Vehiculo as VEHICULO</property>
           Id="Package\Carga de Dimensiones\Dimension Fecha"
           TopLeft="96,44" />
         <NodeLayout
-          Size="182,42"
+          Size="177,42"
           Id="Package\Carga de Dimensiones\Dimension Geografia"
           TopLeft="78,518" />
         <NodeLayout
@@ -14092,7 +14293,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14126,7 +14329,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14232,7 +14437,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14254,7 +14461,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14276,7 +14485,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14334,7 +14545,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14468,25 +14681,25 @@ FROM DBO.Vehiculo as VEHICULO</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="216,42"
-          Id="Package\Carga de Dimensiones\Dimension Descuento\Slowly Changing Dimension"
-          TopLeft="210,209.5" />
-        <NodeLayout
           Size="148,42"
           Id="Package\Carga de Dimensiones\Dimension Descuento\Fuente Partes"
           TopLeft="244,5.5" />
         <NodeLayout
-          Size="176,42"
-          Id="Package\Carga de Dimensiones\Dimension Descuento\Columnas de Linaje"
-          TopLeft="230,107.5" />
+          Size="177,42"
+          Id="Package\Carga de Dimensiones\Dimension Descuento\Comando de OLE DB"
+          TopLeft="229.5,311.5" />
         <NodeLayout
           Size="163,42"
           Id="Package\Carga de Dimensiones\Dimension Descuento\Insert Destination"
           TopLeft="5.50000000000006,311.5" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\Carga de Dimensiones\Dimension Descuento\Comando de OLE DB"
-          TopLeft="229.5,311.5" />
+          Size="216,42"
+          Id="Package\Carga de Dimensiones\Dimension Descuento\Slowly Changing Dimension"
+          TopLeft="210,209.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Carga de Dimensiones\Dimension Descuento\Columnas de Linaje"
+          TopLeft="230,107.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Descuento.Paths[Derived Column Output]"
           TopLeft="318,149.5">
@@ -14506,7 +14719,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14564,7 +14779,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14610,61 +14827,15 @@ FROM DBO.Vehiculo as VEHICULO</property>
     design-time-name="Package\Carga de Dimensiones\Dimension Geografia">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="164,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Columna derivada"
-          TopLeft="19,311.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Insert Destination"
-          TopLeft="162.5,719.5" />
-        <NodeLayout
-          Size="173,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Columna derivada 1"
-          TopLeft="157.5,617.5" />
-        <NodeLayout
-          Size="209,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Slowly Changing Dimension"
-          TopLeft="136,209.5" />
-        <NodeLayout
-          Size="145,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo"
-          TopLeft="171.5,515.5" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje"
-          TopLeft="156,107.5" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB"
-          TopLeft="5.50000000000003,413.5" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="160,42"
           Id="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia"
           TopLeft="164,5.5" />
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de columna derivada]"
-          TopLeft="97.5,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje"
+          TopLeft="158.5,107.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[OLE DB Source Output]"
           TopLeft="244,47.5">
@@ -14687,69 +14858,13 @@ FROM DBO.Vehiculo as VEHICULO</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[New Output]"
-          TopLeft="270.416666666667,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,264"
-              Start="0,0"
-              End="0,256.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,256.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.09138671875,122.533203125,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Historical Attribute Inserts Output]"
-          TopLeft="207,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-106,60"
-              Start="0,0"
-              End="-106,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-102,24.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-102,24.2735042735043"
-                    Point2="-106,24.2735042735043"
-                    Point3="-106,28.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-106,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-128.05638671875,29.2735042735043,150.1127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta"
+          TopLeft="136.5,209.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Derived Column Output]"
-          TopLeft="242.25,149.5">
+          TopLeft="244,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -14769,9 +14884,53 @@ FROM DBO.Vehiculo as VEHICULO</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Columna derivada"
+          TopLeft="19.0000000000001,311.5" />
         <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de Unión de todo 1]"
-          TopLeft="244,557.5">
+          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de inserciones de atributos históricos]"
+          TopLeft="192.25,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-91.25,60"
+              Start="0,0"
+              End="-91.25,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.490045941807" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.490045941807"
+                    Point2="0,20.490045941807"
+                    Point3="-4,20.490045941807" />
+                  <mssgle:LineSegment
+                    End="-87.25,20.490045941807" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-87.25,20.490045941807"
+                    Point2="-91.25,20.490045941807"
+                    Point3="-91.25,24.490045941807" />
+                  <mssgle:LineSegment
+                    End="-91.25,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-142.6132421875,25.490045941807,193.976484375,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB"
+          TopLeft="5.50000000000006,413.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de columna derivada]"
+          TopLeft="97.5000000000001,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -14789,11 +14948,51 @@ FROM DBO.Vehiculo as VEHICULO</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo"
+          TopLeft="171.5,515.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Nueva salida]"
+          TopLeft="244,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.8333333333334,264"
+              Start="0,0"
+              End="22.8333333333334,256.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,152.671214188267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,152.671214188267"
+                    Point2="0,156.671214188267"
+                    Point3="4,156.671214188267" />
+                  <mssgle:LineSegment
+                    End="18.8333333333334,156.671214188267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.8333333333334,156.671214188267"
+                    Point2="22.8333333333334,156.671214188267"
+                    Point3="22.8333333333334,160.671214188267" />
+                  <mssgle:LineSegment
+                    End="22.8333333333334,256.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.8716927083333,161.671214188267,56.57671875,9.7490234375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de comando de OLE DB]"
-          TopLeft="94,455.5">
+          TopLeft="94.0000000000001,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -14825,6 +15024,36 @@ FROM DBO.Vehiculo as VEHICULO</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Columna derivada 1"
+          TopLeft="157.5,617.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de Unión de todo 1]"
+          TopLeft="244,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Insert Destination"
+          TopLeft="162.5,719.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de columna derivada1]"
           TopLeft="244,659.5">
@@ -14847,6 +15076,46 @@ FROM DBO.Vehiculo as VEHICULO</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1"
+          TopLeft="305,311.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de actualizaciones de atributos variables]"
+          TopLeft="295.75,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102.25,60"
+              Start="0,0"
+              End="102.25,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.490045941807" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.490045941807"
+                    Point2="0,20.490045941807"
+                    Point3="4,20.490045941807" />
+                  <mssgle:LineSegment
+                    End="98.25,20.490045941807" />
+                  <mssgle:CubicBezierSegment
+                    Point1="98.25,20.490045941807"
+                    Point2="102.25,20.490045941807"
+                    Point3="102.25,24.490045941807" />
+                  <mssgle:LineSegment
+                    End="102.25,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-53.1282421875,25.490045941807,208.506484375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -14856,13 +15125,21 @@ FROM DBO.Vehiculo as VEHICULO</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="146,42"
-          Id="Package\Carga de Dimensiones\Dimension Origen\Fuente Origen"
-          TopLeft="505,64.5" />
+          Size="209,42"
+          Id="Package\Carga de Dimensiones\Dimension Origen\Slowly Changing Dimension"
+          TopLeft="473.5,268.5" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Carga de Dimensiones\Dimension Origen\Insert Origen"
+          TopLeft="496.5,370.5" />
         <NodeLayout
           Size="171,42"
           Id="Package\Carga de Dimensiones\Dimension Origen\Columnas de Linaje"
           TopLeft="492.5,166.5" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Carga de Dimensiones\Dimension Origen\Fuente Origen"
+          TopLeft="505,64.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Origen.Paths[OLE DB Source Output]"
           TopLeft="578,106.5">
@@ -14882,39 +15159,11 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="209,42"
-          Id="Package\Carga de Dimensiones\Dimension Origen\Slowly Changing Dimension"
-          TopLeft="473.5,268.5" />
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Origen.Paths[Derived Column Output]"
-          TopLeft="578,208.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="141,42"
-          Id="Package\Carga de Dimensiones\Dimension Origen\Insert Origen"
-          TopLeft="496.5,370.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Origen.Paths[New Output]"
           TopLeft="578,310.5">
@@ -14948,6 +15197,30 @@ FROM DBO.Vehiculo as VEHICULO</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-32.59138671875,35,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Origen.Paths[Derived Column Output]"
+          TopLeft="578,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15085,7 +15358,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15119,7 +15394,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15141,7 +15418,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15163,7 +15442,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15185,7 +15466,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15279,7 +15562,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -15295,9 +15580,61 @@ FROM DBO.Vehiculo as VEHICULO</property>
           Id="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta"
           TopLeft="160.5,5.5" />
         <NodeLayout
+          Size="154,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\Derived Column"
+          TopLeft="17.5000000000001,311.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command"
+          TopLeft="5.50000000000006,413.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1"
+          TopLeft="294,311.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\Derived Column 1"
+          TopLeft="151,617.5" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\Union All"
+          TopLeft="172,515.5" />
+        <NodeLayout
           Size="171,42"
           Id="Package\Carga de Dimensiones\Dimension Planta\Columnas de Linaje"
           TopLeft="147,107.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\Slowly Changing Dimension"
+          TopLeft="128,209.5" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\Insert Planta"
+          TopLeft="151,719.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Union All Output 1]"
+          TopLeft="232.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Planta.Paths[OLE DB Source Output]"
           TopLeft="232.5,47.5">
@@ -15317,105 +15654,47 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="209,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\Slowly Changing Dimension"
-          TopLeft="128,209.5" />
         <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Derived Column Output]"
-          TopLeft="232.5,149.5">
+          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[OLE DB Command Output]"
+          TopLeft="88.5000000000001,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="125.166666666667,60"
               Start="0,0"
-              End="0,52.5">
+              End="125.166666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="154,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\Derived Column"
-          TopLeft="17.5000000000001,311.5" />
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Historical Attribute Inserts Output]"
-          TopLeft="182.25,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-87.75,60"
-              Start="0,0"
-              End="-87.75,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.503937007874" />
+                    End="0,31.5301794453507" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.503937007874"
-                    Point2="0,20.503937007874"
-                    Point3="-4,20.503937007874" />
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
                   <mssgle:LineSegment
-                    End="-83.75,20.503937007874" />
+                    End="121.166666666667,35.5301794453507" />
                   <mssgle:CubicBezierSegment
-                    Point1="-83.75,20.503937007874"
-                    Point2="-87.75,20.503937007874"
-                    Point3="-87.75,24.503937007874" />
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
                   <mssgle:LineSegment
-                    End="-87.75,52.5" />
+                    End="125.166666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-118.93138671875,25.503937007874,150.1127734375,11.609375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command"
-          TopLeft="5.50000000000006,413.5" />
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Derived Column Output1]"
-          TopLeft="91.5000000000001,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\Union All"
-          TopLeft="172,515.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Planta.Paths[New Output]"
           TopLeft="232.5,251.5">
@@ -15453,69 +15732,41 @@ FROM DBO.Vehiculo as VEHICULO</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[OLE DB Command Output]"
-          TopLeft="88.5000000000001,455.5">
+          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Historical Attribute Inserts Output]"
+          TopLeft="182.25,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="125.166666666667,60"
+              EndConnector="-87.75,60"
               Start="0,0"
-              End="125.166666666667,52.5">
+              End="-87.75,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5301794453507" />
+                    End="0,16.503937007874" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.5301794453507"
-                    Point2="0,35.5301794453507"
-                    Point3="4,35.5301794453507" />
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="-4,20.503937007874" />
                   <mssgle:LineSegment
-                    End="121.166666666667,35.5301794453507" />
+                    End="-83.75,20.503937007874" />
                   <mssgle:CubicBezierSegment
-                    Point1="121.166666666667,35.5301794453507"
-                    Point2="125.166666666667,35.5301794453507"
-                    Point3="125.166666666667,39.5301794453507" />
+                    Point1="-83.75,20.503937007874"
+                    Point2="-87.75,20.503937007874"
+                    Point3="-87.75,24.503937007874" />
                   <mssgle:LineSegment
-                    End="125.166666666667,52.5" />
+                    End="-87.75,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-118.93138671875,25.503937007874,150.1127734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\Derived Column 1"
-          TopLeft="151,617.5" />
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Union All Output 1]"
-          TopLeft="232.5,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\Insert Planta"
-          TopLeft="151,719.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Derived Column Output2]"
           TopLeft="232.5,659.5">
@@ -15547,13 +15798,59 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1"
-          TopLeft="294,311.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Derived Column Output1]"
+          TopLeft="91.5000000000001,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Derived Column Output]"
+          TopLeft="232.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Changing Attribute Updates Output]"
           TopLeft="282.75,251.5">
@@ -15845,7 +16142,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15867,7 +16166,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15965,39 +16266,25 @@ FROM DBO.Vehiculo as VEHICULO</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="171,42"
-          Id="Package\Carga de Dimensiones\Dimension Vehiculo\Columnas de Linaje"
-          TopLeft="226.5,107.5" />
-        <NodeLayout
           Size="154,42"
           Id="Package\Carga de Dimensiones\Dimension Vehiculo\Fuente Vehiculo"
           TopLeft="235,5.5" />
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Vehiculo.Paths[OLE DB Source Output]"
-          TopLeft="312,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Carga de Dimensiones\Dimension Vehiculo\Insert Vehiculo"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Carga de Dimensiones\Dimension Vehiculo\OLE DB Command"
+          TopLeft="229,311.5" />
         <NodeLayout
           Size="209,42"
           Id="Package\Carga de Dimensiones\Dimension Vehiculo\Slowly Changing Dimension"
           TopLeft="207.5,209.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Carga de Dimensiones\Dimension Vehiculo\Columnas de Linaje"
+          TopLeft="226.5,107.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Vehiculo.Paths[Derived Column Output]"
           TopLeft="312,149.5">
@@ -16017,53 +16304,11 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Carga de Dimensiones\Dimension Vehiculo\Insert Vehiculo"
-          TopLeft="5.50000000000006,311.5" />
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Vehiculo.Paths[New Output]"
-          TopLeft="278.5,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-198,60"
-              Start="0,0"
-              End="-198,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-194,24.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-194,24.2735042735043"
-                    Point2="-198,24.2735042735043"
-                    Point3="-198,28.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-198,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-126.09138671875,29.2735042735043,54.1827734375,11.43359375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Carga de Dimensiones\Dimension Vehiculo\OLE DB Command"
-          TopLeft="229,311.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Vehiculo.Paths[Changing Attribute Updates Output]"
           TopLeft="345.5,251.5">
@@ -16097,6 +16342,66 @@ FROM DBO.Vehiculo as VEHICULO</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Vehiculo.Paths[OLE DB Source Output]"
+          TopLeft="312,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Vehiculo.Paths[New Output]"
+          TopLeft="278.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-198,60"
+              Start="0,0"
+              End="-198,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-194,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-194,24.2735042735043"
+                    Point2="-198,24.2735042735043"
+                    Point3="-198,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-198,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-126.09138671875,29.2735042735043,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16212,6 +16517,95 @@ FROM DBO.Vehiculo as VEHICULO</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{DA7F63C9-091E-4661-9A16-2D5945BE89D2}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[Dimension].[Geografia]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columnas de Linaje.Salidas[Derived Column Output].Columnas[STRCodigoPostal]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CodigoPostal&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columnas de Linaje.Salidas[Derived Column Output].Columnas[ID_Batch]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Batch&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[ID_Ciudad]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Ciudad&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[ID_Pais]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Pais&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[ID_Region]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Region&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columnas de Linaje.Salidas[Derived Column Output].Columnas[ID_SourceSystem]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_SourceSystem&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[NombreCiudad]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreCiudad&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[NombrePais]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombrePais&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[NombreRegion]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreRegion&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Columna derivada&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Unión de todo&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Columna derivada 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;FechaInicioValidez&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;FechaFinValidez&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
