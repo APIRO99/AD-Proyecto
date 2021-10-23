@@ -8,7 +8,7 @@
     <TransactionalDeployment>false</TransactionalDeployment>
     <PartitionDeployment>DeployPartitions</PartitionDeployment>
     <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
-    <ProcessingOption>Default</ProcessingOption>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
     <OutputScript></OutputScript>
     <ImpactAnalysisFile></ImpactAnalysisFile>
     <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
@@ -26,7 +26,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>A9491u5k38ynrAFIkV7sXz4zAg0=10/20/2021 5:13:30 PM10/20/2021 5:13:29 PM</TimeStamp>
+        <TimeStamp>gg3qgvs42GZk4JconFQB2As7ci0=10/23/2021 2:11:45 AM10/20/2021 5:13:29 PM</TimeStamp>
         <ID>
           <String>Repuestos Web DWH</String>
         </ID>
@@ -68,7 +68,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>xQ/gt5o+r5kRM17TFclkVhd7r+Y=10/20/2021 5:14:21 PM10/20/2021 5:14:20 PM</TimeStamp>
+        <TimeStamp>RU1iWLzjMvX9aW3Pz5yb9jneED4=10/23/2021 1:37:10 AM10/20/2021 5:14:20 PM</TimeStamp>
         <ID>
           <String>Fecha</String>
         </ID>
@@ -89,7 +89,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>ers406o5GG5Wm50pkE/+aB/mb3c=10/20/2021 5:14:21 PM10/20/2021 5:14:20 PM</TimeStamp>
+        <TimeStamp>NFDBhyv4PvCfLJcUEuPNAZ+DkuU=10/20/2021 6:57:56 PM10/20/2021 5:14:20 PM</TimeStamp>
         <ID>
           <String>Geografia</String>
         </ID>
@@ -103,7 +103,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>aLdaklxV52HXOW+uXPqYwXoYFjc=10/20/2021 5:51:38 PM10/20/2021 5:14:19 PMeBF7I7KxEb6M903OfP7smyJmvjM=10/20/2021 5:50:47 PM10/20/2021 5:14:19 PM</TimeStamp>
+        <TimeStamp>58NUPxWJCW5HqHVBlAVsNqQwzGM=10/23/2021 2:11:45 AM10/20/2021 5:14:19 PMukWtwzEes+FGWzSrGlcM6bO73Go=10/22/2021 9:21:00 PM10/20/2021 5:14:19 PM</TimeStamp>
         <ID>
           <String>Repuestos Web DWH</String>
         </ID>
@@ -120,5 +120,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2021-10-20T23:51:44.423333Z</LastDeployed>
+  <LastDeployed>2021-10-23T08:11:48.726667Z</LastDeployed>
 </DeploymentSnapshot>
