@@ -1,64 +1,75 @@
 DECLARE @EliminarDB BIT = 1;
 
---Eliminar BDD si ya existe y si @EliminarDB = 1
-	if (((select COUNT(1) from sys.databases where name = 'RepuestosWebDWH')>0) AND (@EliminarDB = 1))
-	begin
-		EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'RepuestosWebDWH'
-		use [master];
-		ALTER DATABASE [RepuestosWebDWH] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE;
-		DROP DATABASE [RepuestosWebDWH]
-		print 'RepuestosWebDWH ha sido eliminada'
-	end
--- END
-
--- Crea DB y la selecciona
-	CREATE DATABASE RepuestosWebDWH
-	GO
-	USE RepuestosWebDWH
-	exec sp_changedbowner 'sa'
-	GO
--- END
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------DECLARACION DE BASE DE DATOS Y TIPOS ---------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
---User Defined Type
-	--Enteros
-		CREATE TYPE [UDT_SK] FROM INT --Tipo para SK entero: Surrogate Key
-		CREATE TYPE [UDT_PK] FROM INT --Tipo para PK entero
-		CREATE TYPE [UDT_SmallInt] from SMALLINT
-		CREATE TYPE [UDT_Int] from INT
+	--Eliminar BDD si ya existe y si @EliminarDB = 1
+		if (((select COUNT(1) from sys.databases where name = 'RepuestosWebDWH')>0) AND (@EliminarDB = 1))
+		begin
+			EXEC msdb.dbo.sp_delete_database_backuphistory @database_name = N'RepuestosWebDWH'
+			use [master];
+			ALTER DATABASE [RepuestosWebDWH] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE;
+			DROP DATABASE [RepuestosWebDWH]
+			print 'RepuestosWebDWH ha sido eliminada'
+		end
+	-- END
 
-	--Cadenas
-		CREATE TYPE [UDT_VarcharLargo] FROM VARCHAR(600) --Tipo para cadenas largas
-		CREATE TYPE [UDT_VarcharMediano] FROM VARCHAR(300) --Tipo para cadenas medianas
-		CREATE TYPE [UDT_VarcharCorto] FROM VARCHAR(100) --Tipo para cadenas cortas
-		CREATE TYPE [UDT_UnCaracter] FROM CHAR(1) --Tipo para char
-
-	--Decimal
-		CREATE TYPE [UDT_Decimal12.2] FROM DECIMAL(12,2) --Tipo Decimal 6,2
-		CREATE TYPE [UDT_Decimal6.2] FROM DECIMAL(6,2) --Tipo Decimal 6,2
-		CREATE TYPE [UDT_Decimal5.2] FROM DECIMAL(5,2) --Tipo Decimal 5,2
-		CREATE TYPE [UDT_Decimal2.2] FROM DECIMAL(2,2) --Tipo Decimal 2,2
-
-	--Fechas
-		CREATE TYPE [UDT_DateTime] FROM DATETIME
-		CREATE TYPE [UDT_Date] FROM DATE
-
-	--Bool
-		CREATE TYPE [UDT_Bit] FROM BIT
-	GO
---END
-
---Schemas para separar objetos
-	CREATE SCHEMA Fact
-	GO
-	CREATE SCHEMA Dimension
-	GO
---END
+	-- Crea DB y la selecciona
+		CREATE DATABASE RepuestosWebDWH
+		GO
+		USE RepuestosWebDWH
+		exec sp_changedbowner 'sa'
+		GO
+	-- END
 
 
---------------------------------------------------------------------------------------------
--------------------------------MODELADO CONCEPTUAL------------------------------------------
---------------------------------------------------------------------------------------------
+	--User Defined Type
+		--Enteros
+			CREATE TYPE [UDT_SK] FROM INT --Tipo para SK entero: Surrogate Key
+			CREATE TYPE [UDT_PK] FROM INT --Tipo para PK entero
+			CREATE TYPE [UDT_SmallInt] from SMALLINT
+			CREATE TYPE [UDT_Int] from INT
+
+		--Cadenas
+			CREATE TYPE [UDT_VarcharLargo] FROM VARCHAR(600) --Tipo para cadenas largas
+			CREATE TYPE [UDT_VarcharMediano] FROM VARCHAR(300) --Tipo para cadenas medianas
+			CREATE TYPE [UDT_VarcharCorto] FROM VARCHAR(100) --Tipo para cadenas cortas
+			CREATE TYPE [UDT_UnCaracter] FROM CHAR(1) --Tipo para char
+
+		--Decimal
+			CREATE TYPE [UDT_Decimal12.2] FROM DECIMAL(12,2) --Tipo Decimal 6,2
+			CREATE TYPE [UDT_Decimal6.2] FROM DECIMAL(6,2) --Tipo Decimal 6,2
+			CREATE TYPE [UDT_Decimal5.2] FROM DECIMAL(5,2) --Tipo Decimal 5,2
+			CREATE TYPE [UDT_Decimal2.2] FROM DECIMAL(2,2) --Tipo Decimal 2,2
+
+		--Fechas
+			CREATE TYPE [UDT_DateTime] FROM DATETIME
+			CREATE TYPE [UDT_Date] FROM DATE
+
+		--Bool
+			CREATE TYPE [UDT_Bit] FROM BIT
+		GO
+	--END User Defined Types
+
+	--Schemas para separar objetos
+		CREATE SCHEMA Fact
+		GO
+		CREATE SCHEMA Dimension
+		GO
+	--END Schemas
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------MODELADO CONCEPTUAL--------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	--Tablas Dimensiones
 		--DIMENSION FECHA
 		CREATE TABLE Dimension.Fecha (
@@ -283,7 +294,7 @@ DECLARE @EliminarDB BIT = 1;
 			SK_StatusOrden						[UDT_SK] REFERENCES Dimension.StatusOrden(SK_StatusOrden),
 			SK_Origen							[UDT_SK] REFERENCES Dimension.Origen(SK_Origen),
 			DateKey 							[UDT_SK] REFERENCES Dimension.Fecha(DateKey),
-			[IDCotizacion]						[UDT_PK] NOT NULL,
+			[IDCotizacion]						[UDT_PK] NULL,
 			[status]							[UDT_VarcharCorto] NULL,
 			[TipoDocumento]						[UDT_VarcharCorto] NULL,
 			[FechaCreacionCotizacion]			[UDT_DateTime] NULL,
@@ -302,22 +313,22 @@ DECLARE @EliminarDB BIT = 1;
 			[MarcadoEntrega]					[UDT_Bit] NULL,
 			[IDPartner]							[UDT_VarcharCorto] NULL,
 			[CodigoPostal]						[UDT_VarcharCorto] NULL,
-			[LeidoPorPlantaReparacion]			[UDT_Bit] NOT NULL,
+			[LeidoPorPlantaReparacion]			[UDT_Bit] NULL,
 			[LeidoPorPlantaReparacionFecha]		[UDT_DateTime] NULL,
-			[CotizacionReabierta]				[UDT_Bit] NOT NULL,
+			[CotizacionReabierta]				[UDT_Bit] NULL,
 			[EsAseguradora]						[UDT_Bit] NULL,
 			[CodigoVerificacion]				[UDT_VarcharCorto] NULL,
 			[IDClientePlantaReparacion]			[UDT_VarcharCorto] NULL,
-			[FechaCreacionRegistro]				[UDT_DateTime] NOT NULL,
+			[FechaCreacionRegistro]				[UDT_DateTime] NULL,
 			[IDRecotizacion]					[UDT_VarcharCorto] NULL,
-			[PartnerConfirmado]					[UDT_Bit] NOT NULL,
+			[PartnerConfirmado]					[UDT_Bit] NULL,
 			[WrittenBy]							[UDT_VarcharCorto] NULL,
-			[SeguroValidado]					[UDT_Bit] NOT NULL,
+			[SeguroValidado]					[UDT_Bit] NULL,
 			[FechaCaptura]						[UDT_DateTime] NULL,
 			[Ruta]								[UDT_VarcharLargo] NULL,
 			[FechaLimiteRuta]					[UDT_VarcharCorto] NULL,
 			[TelefonoEntrega]					[UDT_VarcharCorto] NULL,
-			[NumLinea]							[UDT_VarcharCorto] NOT NULL,
+			[NumLinea]							[UDT_VarcharCorto] NULL,
 			[OETipoParte]						[UDT_VarcharCorto] NULL,
 			[AltPartNum]						[UDT_VarcharCorto] NULL,
 			[AltTipoParte]						[UDT_VarcharCorto] NULL,
@@ -443,10 +454,15 @@ DECLARE @EliminarDB BIT = 1;
 
 	--END Metadata
 
---------------------------------------------------------------------------------------------
----------------------------------MODELADO LOGICO--------------------------------------------
---------------------------------------------------------------------------------------------
---Transformaci�n en modelo l�gico (mas detalles)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------MODELADO LOGICO----------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--Transformaci�n en modelo l�gico (mas detalles)
 
 	--Fact
 		ALTER TABLE Fact.Orden ADD ID_Orden 						[UDT_PK]
@@ -529,15 +545,22 @@ DECLARE @EliminarDB BIT = 1;
 
 
 
---Indices Columnares
-	CREATE NONCLUSTERED COLUMNSTORE INDEX [NCCS-Ordenes] ON [Fact].[Orden] (
-	  [Total_Orden], [CantidadDetalleOrden]
-	) WITH (DROP_EXISTING = OFF, COMPRESSION_DELAY = 0)
-	GO
+	--Indices Columnares
+		CREATE NONCLUSTERED COLUMNSTORE INDEX [NCCS-Ordenes] ON [Fact].[Orden] (
+	  	[Total_Orden], [CantidadDetalleOrden]
+		) WITH (DROP_EXISTING = OFF, COMPRESSION_DELAY = 0)
+		GO
 
 
----------------------------------------------------------------------------------------------
--------------------------------------- USP_FillDimDate --------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------- USP_FillDimDate ---------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 	CREATE PROCEDURE USP_FillDimDate @CurrentDate DATE = '2016-01-01',  @EndDate     DATE = '2022-12-31'
 	AS
 	    BEGIN
@@ -622,7 +645,6 @@ DECLARE @EliminarDB BIT = 1;
 	            END;
 	    END;
 	GO
---------------------------------------------------------------------------------------------
 
 	DECLARE @FechaMaxima DATETIME=DATEADD(YEAR,2,GETDATE())
 	--Fecha
@@ -631,4 +653,6 @@ DECLARE @EliminarDB BIT = 1;
 		EXEC USP_FillDimDate @CurrentDate = '2016-01-01', 
 							 @EndDate     = @FechaMaxima
 	end
-	SELECT * FROM Dimension.Fecha
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

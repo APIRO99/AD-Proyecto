@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{75B1BA0D-42F2-4664-8778-36AF9AA6AABD}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{3EC0C9E7-5E3F-47FF-B3D0-3B24BC73965E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -960,10 +960,10 @@
 	    [COTIZACIONDETALLE].[VehiculoID]               AS [VehiculoID],
 	    [COTIZACION].[WrittenBy]                       AS [WrittenBy]
 	FROM DBO.Orden ORDEN
-	    INNER JOIN DBO.DETALLE_ORDEN DETALLEORDEN ON ORDEN.ID_Orden = DETALLEORDEN.ID_Orden
-		INNER JOIN DBO.Cotizacion COTIZACION ON COTIZACION.IDOrden = ORDEN.ID_Orden
-		INNER JOIN DBO.CotizacionDetalle COTIZACIONDETALLE ON  COTIZACIONDETALLE.IDCotizacion = COTIZACION.IDCotizacion
-			WHERE (Fecha_Orden&gt;?);</property>
+	    RIGHT JOIN DBO.DETALLE_ORDEN DETALLEORDEN ON ORDEN.ID_Orden = DETALLEORDEN.ID_Orden
+		LEFT  JOIN DBO.Cotizacion COTIZACION ON COTIZACION.IDOrden = ORDEN.ID_Orden
+		LEFT  JOIN DBO.CotizacionDetalle COTIZACIONDETALLE ON  COTIZACIONDETALLE.IDCotizacion = COTIZACION.IDCotizacion
+			WHERE ORDEN.ID_Orden IS NOT NULL AND (Fecha_Orden&gt;?);</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -2233,7 +2233,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{DA7F63C9-091E-4661-9A16-2D5945BE89D2}"
-              SQLTask:SqlStatementSource="TRUNCATE TABLE [staging].[Orden]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [STAGING].[ORDEN]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -2249,7 +2249,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{FCB27E82-A04E-41DD-BB14-B4E3252DFD80}"
+              SQLTask:Connection="{DA7F63C9-091E-4661-9A16-2D5945BE89D2}"
               SQLTask:SqlStatementSource="SELECT ISNULL(MAX(FechaEjecucion),'1900-01-01') AS UltimaFecha&#xA; FROM Factlog"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -2397,16 +2397,16 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="143,42"
+          Id="Package\Carga de Facts\Carga sobre Staging\Fuente Orden"
+          TopLeft="313,107" />
+        <NodeLayout
           Size="171,42"
           Id="Package\Carga de Facts\Carga sobre Staging\Carga Stagin Orden"
           TopLeft="298,203" />
-        <NodeLayout
-          Size="147,42"
-          Id="Package\Carga de Facts\Carga sobre Staging\Fuente Orden"
-          TopLeft="313,107" />
         <EdgeLayout
           Id="Package\Carga de Facts\Carga sobre Staging.Paths[OLE DB Source Output]"
-          TopLeft="385,149">
+          TopLeft="384,149">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

@@ -26,7 +26,7 @@ GO
 CREATE TABLE [staging].[Orden](
 	[SK_Orden]                           [dbo].[UDT_SK] IDENTITY(1,1) NOT NULL,
 	[ID_Orden]                           [dbo].[UDT_PK] NULL,
-	[IDCotizacion]                       [dbo].[UDT_PK] NOT NULL,
+	[IDCotizacion]                       [dbo].[UDT_PK] NULL,
 	[status]                             [dbo].[UDT_VarcharCorto] NULL,
 	[TipoDocumento]                      [dbo].[UDT_VarcharCorto] NULL,
 	[FechaCreacionCotizacion]            [dbo].[UDT_DateTime] NULL,
@@ -45,22 +45,22 @@ CREATE TABLE [staging].[Orden](
 	[MarcadoEntrega]                     [dbo].[UDT_Bit] NULL,
 	[IDPartner]                          [dbo].[UDT_VarcharCorto] NULL,
 	[CodigoPostal]                       [dbo].[UDT_VarcharCorto] NULL,
-	[LeidoPorPlantaReparacion]           [dbo].[UDT_Bit] NOT NULL,
+	[LeidoPorPlantaReparacion]           [dbo].[UDT_Bit] NULL,
 	[LeidoPorPlantaReparacionFecha]      [dbo].[UDT_DateTime] NULL,
-	[CotizacionReabierta]                [dbo].[UDT_Bit] NOT NULL,
+	[CotizacionReabierta]                [dbo].[UDT_Bit] NULL,
 	[EsAseguradora]                      [dbo].[UDT_Bit] NULL,
 	[CodigoVerificacion]                 [dbo].[UDT_VarcharCorto] NULL,
 	[IDClientePlantaReparacion]          [dbo].[UDT_VarcharCorto] NULL,
-	[FechaCreacionRegistro]              [dbo].[UDT_DateTime] NOT NULL,
+	[FechaCreacionRegistro]              [dbo].[UDT_DateTime] NULL,
 	[IDRecotizacion]                     [dbo].[UDT_VarcharCorto] NULL,
-	[PartnerConfirmado]                  [dbo].[UDT_Bit] NOT NULL,
+	[PartnerConfirmado]                  [dbo].[UDT_Bit] NULL,
 	[WrittenBy]                          [dbo].[UDT_VarcharCorto] NULL,
-	[SeguroValidado]                     [dbo].[UDT_Bit] NOT NULL,
+	[SeguroValidado]                     [dbo].[UDT_Bit] NULL,
 	[FechaCaptura]                       [dbo].[UDT_DateTime] NULL,
 	[Ruta]                               [dbo].[UDT_VarcharLargo] NULL,
 	[FechaLimiteRuta]                    [dbo].[UDT_VarcharCorto] NULL,
 	[TelefonoEntrega]                    [dbo].[UDT_VarcharCorto] NULL,
-	[NumLinea]                           [dbo].[UDT_VarcharCorto] NOT NULL,
+	[NumLinea]                           [dbo].[UDT_VarcharCorto] NULL,
 	[OETipoParte]                        [dbo].[UDT_VarcharCorto] NULL,
 	[AltPartNum]                         [dbo].[UDT_VarcharCorto] NULL,
 	[AltTipoParte]                       [dbo].[UDT_VarcharCorto] NULL,
@@ -83,71 +83,6 @@ CREATE TABLE [staging].[Orden](
 	[VehiculoID]                         [dbo].[UDT_PK] NULL,
 ) ON [PRIMARY]
 GO
-
---select para el ssis--
-	-- SELECT
-	--     [COTIZACIONDETALLE].[AltPartNum]               AS [AltPartNum],
-	--     [COTIZACIONDETALLE].[AltTipoParte]             AS [AltTipoParte],
-	--     [COTIZACION].[AseguradoraSubsidiaria]          AS [AseguradoraSubsidiaria],
-	--     [COTIZACIONDETALLE].[Cantidad]                 AS [CantidadCotizacionDetalle],
-	--     [DETALLEORDEN].[Cantidad]                      AS [CantidadDetalleOrden],
-	--     [COTIZACIONDETALLE].[ciecaTipoParte]           AS [ciecaTipoParte],
-	--     [COTIZACION].[CodigoPostal]                    AS [CodigoPostal],
-	--     [COTIZACION].[CodigoVerificacion]              AS [CodigoVerificacion],
-	--     [COTIZACION].[CotizacionDuplicada]             AS [CotizacionDuplicada],
-	--     [COTIZACION].[CotizacionReabierta]             AS [CotizacionReabierta],
-	--     [COTIZACION].[CotizacionRealizada]             AS [CotizacionRealizada],
-	--     [COTIZACION].[DireccionEntrega1]               AS [DireccionEntrega1],
-	--     [COTIZACION].[DireccionEntrega2]               AS [DireccionEntrega2],
-	--     [COTIZACION].[EsAseguradora]                   AS [EsAseguradora],
-	--     [ORDEN].[Fecha_Orden]                          AS [Fecha_Orden],
-	--     [COTIZACION].[FechaCaptura]                    AS [FechaCaptura],
-	--     [COTIZACION].[FechaCreacion]                   AS [FechaCreacionCotizacion],
-	--     [COTIZACION].[FechaCreacionRegistro]           AS [FechaCreacionRegistro],
-	--     [COTIZACION].[FechaLimiteRuta]                 AS [FechaLimiteRuta],
-	--     [COTIZACION].[FechaModificacion]               AS [FechaModificacionCotizacion],
-	--     [ORDEN].[ID_Ciudad]                            AS [ID_Ciudad],
-	--     [ORDEN].[ID_Cliente]                           AS [ID_Cliente],
-	--     [DETALLEORDEN].[ID_Descuento]                  AS [ID_Descuento],
-	--     [DETALLEORDEN].[ID_DetalleOrden]               AS [ID_DetalleOrden],
-	--     [ORDEN].[ID_Orden]                             AS [ID_Orden],
-	--     [COTIZACIONDETALLE].[ID_Parte]                 AS [ID_Parte],
-	--     [ORDEN].[ID_StatusOrden]                       AS [ID_StatusOrden],
-	--     [COTIZACION].[IDAseguradora]                   AS [IDAseguradora],
-	--     [COTIZACION].[IDClientePlantaReparacion]       AS [IDClientePlantaReparacion],
-	--     [COTIZACION].[IDCotizacion]                    AS [IDCotizacion],
-	--     [COTIZACION].[IDPartner]                       AS [IDPartner],
-	--     [COTIZACION].[IDPlantaReparacion]              AS [IDPlantaReparacion],
-	--     [COTIZACION].[IDRecotizacion]                  AS [IDRecotizacion],
-	--     [COTIZACION].[LeidoPorPlantaReparacion]        AS [LeidoPorPlantaReparacion],
-	--     [COTIZACION].[LeidoPorPlantaReparacionFecha]   AS [LeidoPorPlantaReparacionFecha],
-	--     [COTIZACION].[MarcadoEntrega]                  AS [MarcadoEntrega],
-	--     [COTIZACIONDETALLE].[NecesitadoParaFecha]      AS [NecesitadoParaFecha],
-	--     [ORDEN].[NumeroOrden]                          AS [NumeroOrden],
-	--     [COTIZACION].[NumeroReclamo]                   AS [NumeroReclamo],
-	--     [COTIZACIONDETALLE].[NumLinea]                 AS [NumLinea],
-	--     [COTIZACIONDETALLE].[OETipoParte]              AS [OETipoParte],
-	--     [COTIZACION].[OrdenRealizada]                  AS [OrdenRealizada],
-	--     [COTIZACIONDETALLE].[partDescripcion]          AS [partDescripcion],
-	--     [COTIZACION].[PartnerConfirmado]               AS [PartnerConfirmado],
-	--     [COTIZACIONDETALLE].[PrecioListaOnRO]          AS [PrecioListaOnRO],
-	--     [COTIZACIONDETALLE].[PrecioNetoOnRO]           AS [PrecioNetoOnRO],
-	--     [COTIZACION].[ProcesadoPor]                    AS [ProcesadoPor],
-	--     [COTIZACION].[procurementFolderID]             AS [procurementFolderID],
-	--     [COTIZACION].[Ruta]                            AS [Ruta],
-	--     [COTIZACION].[SeguroValidado]                  AS [SeguroValidado],
-	--     [COTIZACION].[status]                          AS [status],
-	--     [COTIZACION].[TelefonoEntrega]                 AS [TelefonoEntrega],
-	--     [COTIZACION].[TipoDocumento]                   AS [TipoDocumento],
-	--     [ORDEN].[Total_Orden]                          AS [Total_Orden],
-	--     [COTIZACIONDETALLE].[VehiculoID]               AS [VehiculoID],
-	--     [COTIZACION].[WrittenBy]                       AS [WrittenBy]
-	-- FROM DBO.Orden ORDEN
-	--     INNER JOIN DBO.DETALLE_ORDEN DETALLEORDEN ON ORDEN.ID_Orden = DETALLEORDEN.ID_Orden
-	-- 	INNER JOIN DBO.Cotizacion COTIZACION ON COTIZACION.IDOrden = ORDEN.ID_Orden
-	-- 	INNER JOIN DBO.CotizacionDetalle COTIZACIONDETALLE ON  COTIZACIONDETALLE.IDCotizacion = COTIZACION.IDCotizacion
-	-- 		WHERE (Fecha_Orden>?);
---select para el ssis--
 
 --Merge para ingresar datos la primera vez		
 CREATE PROCEDURE USP_MergeFact
@@ -241,14 +176,14 @@ BEGIN
 					[O].[VehiculoID]
 					FROM [STAGING].[ORDEN] O
 						INNER JOIN [Dimension].[Origen]        ORGN    ON ([ORGN].[ID_Orden]            = [O].[ID_Orden])
-						INNER JOIN [Dimension].[Vehiculo]      VEHC    ON ([VEHC].[VehiculoID]          = [O].[VehiculoID])
-						INNER JOIN [Dimension].[Descuento]     DSCT    ON ([DSCT].[ID_Descuento]        = [O].[ID_Descuento])
+						LEFT  JOIN [Dimension].[Vehiculo]      VEHC    ON ([VEHC].[VehiculoID]          = [O].[VehiculoID])
+						LEFT  JOIN [Dimension].[Descuento]     DSCT    ON ([DSCT].[ID_Descuento]        = [O].[ID_Descuento])
 						INNER JOIN [Dimension].[StatusOrden]   SORD    ON ([SORD].[ID_StatusOrden]      = [O].[ID_StatusOrden])
-						INNER JOIN [Dimension].[Planta]        PLNT    ON ([PLNT].[IDPlantaReparacion]  = [O].[IDPlantaReparacion]  AND [O].Fecha_Orden BETWEEN [PLNT].[FechaInicioValidez] AND ISNULL([PLNT].[FechaFinValidez], '9999-12-31'))
-						INNER JOIN [Dimension].[Partes]        PART    ON ([PART].[ID_Parte]            = [O].[ID_Parte]            AND [O].Fecha_Orden BETWEEN [PART].[FechaInicioValidez] AND ISNULL([PART].[FechaFinValidez], '9999-12-31'))
-						INNER JOIN [Dimension].[Geografia]     GEOG    ON ([GEOG].[Id_Ciudad]           = [O].[ID_Ciudad]           AND [O].Fecha_Orden BETWEEN [GEOG].[FechaInicioValidez] AND ISNULL([GEOG].[FechaFinValidez], '9999-12-31'))
-						INNER JOIN [Dimension].[Clientes]      CLNT    ON ([CLNT].[ID_Cliente]          = [O].[ID_Cliente]          AND [O].Fecha_Orden BETWEEN [CLNT].[FechaInicioValidez] AND ISNULL([CLNT].[FechaFinValidez], '9999-12-31'))
-						INNER JOIN [Dimension].[Aseguradora]   ASEG    ON ([ASEG].[IDAseguradora]       = [O].[IDAseguradora]       AND [O].Fecha_Orden BETWEEN [ASEG].[FechaInicioValidez] AND ISNULL([ASEG].[FechaFinValidez], '9999-12-31'))
+						LEFT  JOIN [Dimension].[Planta]        PLNT    ON ([PLNT].[IDPlantaReparacion]  = [O].[IDPlantaReparacion]  AND [O].Fecha_Orden BETWEEN IIF([PLNT].[FechaInicioValidez] > [O].Fecha_Orden, [O].Fecha_Orden, [PLNT].[FechaInicioValidez]) AND ISNULL([PLNT].[FechaFinValidez], '9999-12-31'))
+						LEFT  JOIN [Dimension].[Partes]        PART    ON ([PART].[ID_Parte]            = [O].[ID_Parte]            AND [O].Fecha_Orden BETWEEN IIF([PART].[FechaInicioValidez] > [O].Fecha_Orden, [O].Fecha_Orden, [PART].[FechaInicioValidez]) AND ISNULL([PART].[FechaFinValidez], '9999-12-31'))
+						INNER JOIN [Dimension].[Geografia]     GEOG    ON ([GEOG].[Id_Ciudad]           = [O].[ID_Ciudad]           AND [O].Fecha_Orden BETWEEN IIF([GEOG].[FechaInicioValidez] > [O].Fecha_Orden, [O].Fecha_Orden, [GEOG].[FechaInicioValidez]) AND ISNULL([GEOG].[FechaFinValidez], '9999-12-31'))
+						LEFT  JOIN [Dimension].[Clientes]      CLNT    ON ([CLNT].[ID_Cliente]          = [O].[ID_Cliente]          AND [O].Fecha_Orden BETWEEN IIF([CLNT].[FechaInicioValidez] > [O].Fecha_Orden, [O].Fecha_Orden, [CLNT].[FechaInicioValidez]) AND ISNULL([CLNT].[FechaFinValidez], '9999-12-31'))
+						LEFT  JOIN [Dimension].[Aseguradora]   ASEG    ON ([ASEG].[IDAseguradora]       = [O].[IDAseguradora]       AND [O].Fecha_Orden BETWEEN IIF([ASEG].[FechaInicioValidez] > [O].Fecha_Orden, [O].Fecha_Orden, [ASEG].[FechaInicioValidez]) AND ISNULL([ASEG].[FechaFinValidez], '9999-12-31'))
 						
 						LEFT JOIN Dimension.Fecha F ON(CAST( (CAST(YEAR(O.Fecha_Orden) AS VARCHAR(4)))+left('0'+CAST(MONTH(O.Fecha_Orden) AS VARCHAR(4)),2)+left('0'+(CAST(DAY(O.Fecha_Orden) AS VARCHAR(4))),2) AS INT)  = F.DateKey)
     	    ) AS SRC ON (SRC.ID_ORDEN = [T].[ID_Orden])
