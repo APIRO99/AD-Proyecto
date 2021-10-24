@@ -148,25 +148,25 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 | Ciudad                          |     2    |
 | Estado                          |     1    |
 | CodigoPostal                    |     2    |
-| Pais                            |     0    |
+| Pais                            |     1    |
 | TelefonoAlmacen                 |     1    |
 | FaxAlmacen                      |     1    |
 | CorreoContacto                  |     1    |
 | NombreContacto                  |     1    |
 | TelefonoContacto                |     1    |
-| TituloTrabajo                   |     0    |
-| AlmacenKeystone                 |     0    |
-| IDPredio                        |     0    |
-| LocalizadorCotizacion           |     0    |
+| TituloTrabajo                   |     1    |
+| AlmacenKeystone                 |     1    |
+| IDPredio                        |     1    |
+| LocalizadorCotizacion           |     1    |
 | FechaAgregado                   |     1    |
-| IDEmpresa                       |     0    |
+| IDEmpresa                       |     1    |
 | ValidacionSeguro                |     1    |
 | Activo                          |     2    |
 | CreadoPor                       |     1    |
 | ActualizadoPor                  |     1    |
 | UltimaFechaActualizacion        |     1    |
-| ID_Batch                        |     0    |
-| ID_SourceSystem                 |     0    |
+| ID_Batch                        |     1    |
+| ID_SourceSystem                 |     1    |
 
 ### Descuento
 | Atributo                        | Tipo SCD |

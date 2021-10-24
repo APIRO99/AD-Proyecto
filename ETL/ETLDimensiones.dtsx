@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{4CF416CD-B77A-4FCF-99B4-697C71E5546D}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{F0D5FBF1-1637-4A57-BD99-FCADE8B11858}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -9459,11 +9459,11 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta"
+                  refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="Insert Planta"
+                  name="Insert Destination"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -9516,7 +9516,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Connections[OleDbConnection]"
+                      refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Connections[OleDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[localhost.RepuestosWebDWH]"
                       connectionManagerRefId="Package.ConnectionManagers[localhost.RepuestosWebDWH]"
                       description="The OLE DB runtime connection used to access the database."
@@ -9524,393 +9524,393 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input]"
+                      refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[IDPlantaReparacion]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[IDPlantaReparacion]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="IDPlantaReparacion"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[IDPlantaReparacion]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IDPlantaReparacion]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[IDPlantaReparacion]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[CompanyNombre]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[CompanyNombre]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="CompanyNombre"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[CompanyNombre]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyNombre]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[CompanyNombre]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[Direccion]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[Direccion]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Direccion"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[Direccion]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Direccion]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[Direccion]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[Direccion2]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[Direccion2]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Direccion2"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[Direccion2]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Direccion2]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[Direccion2]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[Ciudad]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[Ciudad]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Ciudad"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[Ciudad]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ciudad]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[Ciudad]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[Estado]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[Estado]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Estado"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[Estado]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Estado]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[Estado]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[CodigoPostal]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[CodigoPostal]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="10"
                           cachedName="CodigoPostal"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[CodigoPostal]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CodigoPostal]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[CodigoPostal]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[Pais]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[Pais]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="4"
                           cachedName="Pais"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[Pais]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pais]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[Pais]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[TelefonoAlmacen]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[TelefonoAlmacen]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="12"
                           cachedName="TelefonoAlmacen"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[TelefonoAlmacen]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[TelefonoAlmacen]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[TelefonoAlmacen]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[FaxAlmacen]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[FaxAlmacen]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="12"
                           cachedName="FaxAlmacen"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[FaxAlmacen]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FaxAlmacen]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[FaxAlmacen]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[CorreoContacto]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[CorreoContacto]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="CorreoContacto"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[CorreoContacto]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CorreoContacto]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[CorreoContacto]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[NombreContacto]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[NombreContacto]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="100"
                           cachedName="NombreContacto"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[NombreContacto]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NombreContacto]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[NombreContacto]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[TelefonoContacto]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[TelefonoContacto]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="12"
                           cachedName="TelefonoContacto"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[TelefonoContacto]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[TelefonoContacto]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[TelefonoContacto]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[TituloTrabajo]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[TituloTrabajo]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="TituloTrabajo"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[TituloTrabajo]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[TituloTrabajo]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[TituloTrabajo]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[AlmacenKeystone]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[AlmacenKeystone]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="3"
                           cachedName="AlmacenKeystone"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[AlmacenKeystone]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[AlmacenKeystone]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[AlmacenKeystone]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[IDPredio]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[IDPredio]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="4"
                           cachedName="IDPredio"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[IDPredio]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IDPredio]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[IDPredio]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[LocalizadorCotizacion]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[LocalizadorCotizacion]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="4"
                           cachedName="LocalizadorCotizacion"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[LocalizadorCotizacion]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocalizadorCotizacion]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[LocalizadorCotizacion]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[FechaAgregado]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[FechaAgregado]"
                           cachedDataType="dbTimeStamp"
                           cachedName="FechaAgregado"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[FechaAgregado]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaAgregado]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[FechaAgregado]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[IDEmpresa]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[IDEmpresa]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="3"
                           cachedName="IDEmpresa"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[IDEmpresa]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IDEmpresa]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[IDEmpresa]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[ValidacionSeguro]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[ValidacionSeguro]"
                           cachedDataType="bool"
                           cachedName="ValidacionSeguro"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[ValidacionSeguro]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidacionSeguro]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[ValidacionSeguro]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[Activo]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[Activo]"
                           cachedDataType="bool"
                           cachedName="Activo"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[Activo]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Activo]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[Activo]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[CreadoPor]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[CreadoPor]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="CreadoPor"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[CreadoPor]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreadoPor]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[CreadoPor]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[ActualizadoPor]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[ActualizadoPor]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="ActualizadoPor"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[ActualizadoPor]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActualizadoPor]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[ActualizadoPor]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[UltimaFechaActualizacion]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[UltimaFechaActualizacion]"
                           cachedDataType="dbTimeStamp"
                           cachedName="UltimaFechaActualizacion"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[UltimaFechaActualizacion]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UltimaFechaActualizacion]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[UltimaFechaActualizacion]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[FechaInicioValidez]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[FechaInicioValidez]"
                           cachedDataType="dbTimeStamp"
                           cachedName="FechaInicioValidez"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicioValidez]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicioValidez]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Derived Column 1.Outputs[Derived Column Output].Columns[FechaInicioValidez]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[ID_Batch]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID_Batch]"
                           cachedDataType="guid"
                           cachedName="ID_Batch"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[ID_Batch]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Batch]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[ID_Batch]" />
                         <inputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].Columns[ID_SourceSystem]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID_SourceSystem]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="ID_SourceSystem"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[ID_SourceSystem]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_SourceSystem]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Union All.Outputs[Union All Output 1].Columns[ID_SourceSystem]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[SK_Planta]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_Planta]"
                           dataType="i4"
                           name="SK_Planta" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[IDPlantaReparacion]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IDPlantaReparacion]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="IDPlantaReparacion" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[CompanyNombre]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyNombre]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="CompanyNombre" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[Direccion]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Direccion]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="Direccion" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[Direccion2]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Direccion2]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="Direccion2" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[Ciudad]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ciudad]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="Ciudad" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[Estado]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Estado]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="Estado" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[CodigoPostal]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CodigoPostal]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="CodigoPostal" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[Pais]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pais]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="Pais" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[TelefonoAlmacen]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[TelefonoAlmacen]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="TelefonoAlmacen" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[FaxAlmacen]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FaxAlmacen]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="FaxAlmacen" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[CorreoContacto]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CorreoContacto]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="CorreoContacto" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[NombreContacto]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NombreContacto]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="NombreContacto" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[TelefonoContacto]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[TelefonoContacto]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="TelefonoContacto" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[TituloTrabajo]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[TituloTrabajo]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="TituloTrabajo" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[AlmacenKeystone]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[AlmacenKeystone]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="AlmacenKeystone" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[IDPredio]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IDPredio]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="IDPredio" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[LocalizadorCotizacion]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocalizadorCotizacion]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="LocalizadorCotizacion" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[FechaAgregado]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaAgregado]"
                           dataType="dbTimeStamp"
                           name="FechaAgregado" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[IDEmpresa]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IDEmpresa]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="IDEmpresa" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[ValidacionSeguro]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidacionSeguro]"
                           dataType="bool"
                           name="ValidacionSeguro" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[Activo]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Activo]"
                           dataType="bool"
                           name="Activo" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[CreadoPor]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreadoPor]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="CreadoPor" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[ActualizadoPor]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActualizadoPor]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="ActualizadoPor" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[UltimaFechaActualizacion]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UltimaFechaActualizacion]"
                           dataType="dbTimeStamp"
                           name="UltimaFechaActualizacion" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicioValidez]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicioValidez]"
                           dataType="dbTimeStamp"
                           name="FechaInicioValidez" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[FechaFinValidez]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaFinValidez]"
                           dataType="dbTimeStamp"
                           name="FechaFinValidez" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[FechaCreacion]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaCreacion]"
                           dataType="dbTimeStamp"
                           name="FechaCreacion" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[FechaModificacion]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaModificacion]"
                           dataType="dbTimeStamp"
                           name="FechaModificacion" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioCreacion]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioCreacion]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="UsuarioCreacion" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioModificacion]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UsuarioModificacion]"
                           codePage="1252"
                           dataType="str"
                           length="100"
                           name="UsuarioModificacion" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[ID_Batch]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Batch]"
                           dataType="guid"
                           name="ID_Batch" />
                         <externalMetadataColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input].ExternalColumns[ID_SourceSystem]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_SourceSystem]"
                           codePage="1252"
                           dataType="str"
                           length="20"
@@ -9920,22 +9920,22 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -10077,7 +10077,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [Dimension].[Planta] SET [ActualizadoPor] = ?,[CorreoContacto] = ?,[CreadoPor] = ?,[Direccion] = ?,[Direccion2] = ?,[Estado] = ?,[FaxAlmacen] = ?,[FechaAgregado] = ?,[NombreContacto] = ?,[TelefonoAlmacen] = ?,[TelefonoContacto] = ?,[UltimaFechaActualizacion] = ?,[ValidacionSeguro] = ? WHERE [IDPlantaReparacion] = ? AND [FechaFinValidez] IS NULL</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [Dimension].[Planta] SET [ActualizadoPor] = ?,[AlmacenKeystone] = ?,[CorreoContacto] = ?,[CreadoPor] = ?,[Direccion] = ?,[Direccion2] = ?,[Estado] = ?,[FaxAlmacen] = ?,[FechaAgregado] = ?,[ID_Batch] = ?,[ID_SourceSystem] = ?,[IDEmpresa] = ?,[IDPredio] = ?,[LocalizadorCotizacion] = ?,[NombreContacto] = ?,[Pais] = ?,[TelefonoAlmacen] = ?,[TelefonoContacto] = ?,[TituloTrabajo] = ?,[UltimaFechaActualizacion] = ?,[ValidacionSeguro] = ? WHERE [IDPlantaReparacion] = ? AND [FechaFinValidez] IS NULL</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -10108,12 +10108,20 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                           externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[ActualizadoPor]" />
                         <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[AlmacenKeystone]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="AlmacenKeystone"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[AlmacenKeystone]" />
+                        <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[CorreoContacto]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="CorreoContacto"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[CorreoContacto]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[CreadoPor]"
@@ -10121,7 +10129,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="CreadoPor"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[CreadoPor]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Direccion]"
@@ -10129,7 +10137,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Direccion"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[Direccion]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Direccion2]"
@@ -10137,7 +10145,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Direccion2"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[Direccion2]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Estado]"
@@ -10145,7 +10153,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="Estado"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[Estado]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[FaxAlmacen]"
@@ -10153,37 +10161,83 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                           cachedDataType="str"
                           cachedLength="12"
                           cachedName="FaxAlmacen"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[FaxAlmacen]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[FechaAgregado]"
                           cachedDataType="dbTimeStamp"
                           cachedName="FechaAgregado"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[FechaAgregado]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ID_Batch]"
+                          cachedDataType="guid"
+                          cachedName="ID_Batch"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Planta\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_Batch]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ID_SourceSystem]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ID_SourceSystem"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Planta\Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[IDEmpresa]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="IDEmpresa"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[IDEmpresa]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[IDPlantaReparacion]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
                           cachedName="IDPlantaReparacion"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_21]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[IDPlantaReparacion]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[IDPredio]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="4"
+                          cachedName="IDPredio"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[IDPredio]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[LocalizadorCotizacion]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="4"
+                          cachedName="LocalizadorCotizacion"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[LocalizadorCotizacion]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[NombreContacto]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="100"
                           cachedName="NombreContacto"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[NombreContacto]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Pais]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="4"
+                          cachedName="Pais"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[Pais]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[TelefonoAlmacen]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="12"
                           cachedName="TelefonoAlmacen"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[TelefonoAlmacen]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[TelefonoContacto]"
@@ -10191,19 +10245,27 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                           cachedDataType="str"
                           cachedLength="12"
                           cachedName="TelefonoContacto"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_17]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[TelefonoContacto]" />
+                        <inputColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[TituloTrabajo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="TituloTrabajo"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_18]"
+                          lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[TituloTrabajo]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[UltimaFechaActualizacion]"
                           cachedDataType="dbTimeStamp"
                           cachedName="UltimaFechaActualizacion"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_19]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[UltimaFechaActualizacion]" />
                         <inputColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ValidacionSeguro]"
                           cachedDataType="bool"
                           cachedName="ValidacionSeguro"
-                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                          externalMetadataColumnId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_20]"
                           lineageId="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta.Outputs[OLE DB Source Output].Columns[ValidacionSeguro]" />
                       </inputColumns>
                       <externalMetadataColumns
@@ -10301,7 +10363,9 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                         </externalMetadataColumn>
                         <externalMetadataColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                          dataType="dbTimeStamp"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
                           name="Param_7">
                           <properties>
                             <property
@@ -10312,9 +10376,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                         </externalMetadataColumn>
                         <externalMetadataColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
+                          dataType="dbTimeStamp"
                           name="Param_8">
                           <properties>
                             <property
@@ -10325,9 +10387,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                         </externalMetadataColumn>
                         <externalMetadataColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
+                          dataType="guid"
                           name="Param_9">
                           <properties>
                             <property
@@ -10340,7 +10400,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
                           codePage="1252"
                           dataType="str"
-                          length="100"
+                          length="20"
                           name="Param_10">
                           <properties>
                             <property
@@ -10351,7 +10411,9 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                         </externalMetadataColumn>
                         <externalMetadataColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
-                          dataType="dbTimeStamp"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
                           name="Param_11">
                           <properties>
                             <property
@@ -10362,7 +10424,9 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                         </externalMetadataColumn>
                         <externalMetadataColumn
                           refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
-                          dataType="bool"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
                           name="Param_12">
                           <properties>
                             <property
@@ -10377,6 +10441,106 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                           dataType="str"
                           length="100"
                           name="Param_13">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_14">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_15">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_16">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_17]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_17">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_18]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_18">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_19]"
+                          dataType="dbTimeStamp"
+                          name="Param_19">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_20]"
+                          dataType="bool"
+                          name="Param_20">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_21]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_21">
                           <properties>
                             <property
                               dataType="System.Int32"
@@ -10443,7 +10607,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
-                      name="FailOnFixedAttributeChange">true</property>
+                      name="FailOnFixedAttributeChange">false</property>
                     <property
                       dataType="System.String"
                       description="Specifies the column name for the inferred member."
@@ -10519,7 +10683,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                             <property
                               dataType="System.Int32"
                               name="ColumnType"
-                              typeConverter="ColumnType">4</property>
+                              typeConverter="ColumnType">2</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -10680,7 +10844,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                             <property
                               dataType="System.Int32"
                               name="ColumnType"
-                              typeConverter="ColumnType">4</property>
+                              typeConverter="ColumnType">2</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -10695,7 +10859,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                             <property
                               dataType="System.Int32"
                               name="ColumnType"
-                              typeConverter="ColumnType">4</property>
+                              typeConverter="ColumnType">2</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -10710,7 +10874,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                             <property
                               dataType="System.Int32"
                               name="ColumnType"
-                              typeConverter="ColumnType">4</property>
+                              typeConverter="ColumnType">2</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -10740,7 +10904,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                             <property
                               dataType="System.Int32"
                               name="ColumnType"
-                              typeConverter="ColumnType">4</property>
+                              typeConverter="ColumnType">2</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -10755,7 +10919,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                             <property
                               dataType="System.Int32"
                               name="ColumnType"
-                              typeConverter="ColumnType">4</property>
+                              typeConverter="ColumnType">2</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -10785,7 +10949,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                             <property
                               dataType="System.Int32"
                               name="ColumnType"
-                              typeConverter="ColumnType">4</property>
+                              typeConverter="ColumnType">2</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -10830,7 +10994,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                             <property
                               dataType="System.Int32"
                               name="ColumnType"
-                              typeConverter="ColumnType">4</property>
+                              typeConverter="ColumnType">2</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -12062,7 +12226,7 @@ FROM DBO.PlantaReparacion AS PLANTA</property>
                   startId="Package\Carga de Dimensiones\Dimension Planta\Derived Column.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\Carga de Dimensiones\Dimension Planta.Paths[Derived Column Output2]"
-                  endId="Package\Carga de Dimensiones\Dimension Planta\Insert Planta.Inputs[OLE DB Destination Input]"
+                  endId="Package\Carga de Dimensiones\Dimension Planta\Insert Destination.Inputs[OLE DB Destination Input]"
                   name="Derived Column Output"
                   startId="Package\Carga de Dimensiones\Dimension Planta\Derived Column 1.Outputs[Derived Column Output]" />
                 <path
@@ -13942,7 +14106,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13964,7 +14130,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13986,7 +14154,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14008,7 +14178,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14042,7 +14214,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14136,7 +14310,9 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14829,6 +15005,26 @@ FROM DBO.Vehiculo as VEHICULO</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="215,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta"
+          TopLeft="136.5,209.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Columna derivada"
+          TopLeft="19.0000000000001,311.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Columna derivada 1"
+          TopLeft="157.5,617.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Insert Destination"
+          TopLeft="162.5,719.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo"
+          TopLeft="171.5,515.5" />
+        <NodeLayout
           Size="160,42"
           Id="Package\Carga de Dimensiones\Dimension Geografia\Fuente Geografia"
           TopLeft="164,5.5" />
@@ -14836,9 +15032,17 @@ FROM DBO.Vehiculo as VEHICULO</property>
           Size="171,42"
           Id="Package\Carga de Dimensiones\Dimension Geografia\Columnas de Linaje"
           TopLeft="158.5,107.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB"
+          TopLeft="5.50000000000006,413.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1"
+          TopLeft="305,311.5" />
         <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[OLE DB Source Output]"
-          TopLeft="244,47.5">
+          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de Unión de todo 1]"
+          TopLeft="244,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -14855,39 +15059,11 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="215,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta"
-          TopLeft="136.5,209.5" />
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Derived Column Output]"
-          TopLeft="244,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Columna derivada"
-          TopLeft="19.0000000000001,311.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de inserciones de atributos históricos]"
           TopLeft="192.25,251.5">
@@ -14924,10 +15100,66 @@ FROM DBO.Vehiculo as VEHICULO</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB"
-          TopLeft="5.50000000000006,413.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de comando de OLE DB]"
+          TopLeft="94.0000000000001,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.166666666667,60"
+              Start="0,0"
+              End="127.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6070941336971" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.6070941336971"
+                    Point2="0,35.6070941336971"
+                    Point3="4,35.6070941336971" />
+                  <mssgle:LineSegment
+                    End="123.166666666667,35.6070941336971" />
+                  <mssgle:CubicBezierSegment
+                    Point1="123.166666666667,35.6070941336971"
+                    Point2="127.166666666667,35.6070941336971"
+                    Point3="127.166666666667,39.6070941336971" />
+                  <mssgle:LineSegment
+                    End="127.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de columna derivada1]"
+          TopLeft="244,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de columna derivada]"
           TopLeft="97.5000000000001,353.5">
@@ -14947,13 +15179,71 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="145,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Unión de todo"
-          TopLeft="171.5,515.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de actualizaciones de atributos variables]"
+          TopLeft="295.75,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102.25,60"
+              Start="0,0"
+              End="102.25,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.490045941807" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.490045941807"
+                    Point2="0,20.490045941807"
+                    Point3="4,20.490045941807" />
+                  <mssgle:LineSegment
+                    End="98.25,20.490045941807" />
+                  <mssgle:CubicBezierSegment
+                    Point1="98.25,20.490045941807"
+                    Point2="102.25,20.490045941807"
+                    Point3="102.25,24.490045941807" />
+                  <mssgle:LineSegment
+                    End="102.25,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-53.1282421875,25.490045941807,208.506484375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[OLE DB Source Output]"
+          TopLeft="244,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Nueva salida]"
           TopLeft="244,251.5">
@@ -14991,46 +15281,8 @@ FROM DBO.Vehiculo as VEHICULO</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de comando de OLE DB]"
-          TopLeft="94.0000000000001,455.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="127.166666666667,60"
-              Start="0,0"
-              End="127.166666666667,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.6070941336971" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.6070941336971"
-                    Point2="0,35.6070941336971"
-                    Point3="4,35.6070941336971" />
-                  <mssgle:LineSegment
-                    End="123.166666666667,35.6070941336971" />
-                  <mssgle:CubicBezierSegment
-                    Point1="123.166666666667,35.6070941336971"
-                    Point2="127.166666666667,35.6070941336971"
-                    Point3="127.166666666667,39.6070941336971" />
-                  <mssgle:LineSegment
-                    End="127.166666666667,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="173,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Columna derivada 1"
-          TopLeft="157.5,617.5" />
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de Unión de todo 1]"
-          TopLeft="244,557.5">
+          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Derived Column Output]"
+          TopLeft="244,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15042,83 +15294,108 @@ FROM DBO.Vehiculo as VEHICULO</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Insert Destination"
-          TopLeft="162.5,719.5" />
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de columna derivada1]"
-          TopLeft="244,659.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Carga de Dimensiones\Dimension Geografia\Comando de OLE DB 1"
-          TopLeft="305,311.5" />
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Geografia.Paths[Salida de actualizaciones de atributos variables]"
-          TopLeft="295.75,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="102.25,60"
-              Start="0,0"
-              End="102.25,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.490045941807" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.490045941807"
-                    Point2="0,20.490045941807"
-                    Point3="4,20.490045941807" />
-                  <mssgle:LineSegment
-                    End="98.25,20.490045941807" />
-                  <mssgle:CubicBezierSegment
-                    Point1="98.25,20.490045941807"
-                    Point2="102.25,20.490045941807"
-                    Point3="102.25,24.490045941807" />
-                  <mssgle:LineSegment
-                    End="102.25,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-53.1282421875,25.490045941807,208.506484375,9.7490234375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{DA7F63C9-091E-4661-9A16-2D5945BE89D2}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[Dimension].[Geografia]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columnas de Linaje.Salidas[Derived Column Output].Columnas[STRCodigoPostal]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CodigoPostal&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columnas de Linaje.Salidas[Derived Column Output].Columnas[ID_Batch]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Batch&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[ID_Ciudad]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Ciudad&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[ID_Pais]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Pais&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[ID_Region]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Region&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Columnas de Linaje.Salidas[Derived Column Output].Columnas[ID_SourceSystem]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_SourceSystem&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[NombreCiudad]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreCiudad&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[NombrePais]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombrePais&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[NombreRegion]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NombreRegion&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Columna derivada&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Unión de todo&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Columna derivada 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;FechaInicioValidez&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;FechaFinValidez&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Carga de Dimensiones\Dimension Origen">
     <LayoutInfo>
@@ -15580,26 +15857,6 @@ FROM DBO.Vehiculo as VEHICULO</property>
           Id="Package\Carga de Dimensiones\Dimension Planta\Fuente Planta"
           TopLeft="160.5,5.5" />
         <NodeLayout
-          Size="154,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\Derived Column"
-          TopLeft="17.5000000000001,311.5" />
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command"
-          TopLeft="5.50000000000006,413.5" />
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1"
-          TopLeft="294,311.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\Derived Column 1"
-          TopLeft="151,617.5" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\Union All"
-          TopLeft="172,515.5" />
-        <NodeLayout
           Size="171,42"
           Id="Package\Carga de Dimensiones\Dimension Planta\Columnas de Linaje"
           TopLeft="147,107.5" />
@@ -15607,34 +15864,6 @@ FROM DBO.Vehiculo as VEHICULO</property>
           Size="209,42"
           Id="Package\Carga de Dimensiones\Dimension Planta\Slowly Changing Dimension"
           TopLeft="128,209.5" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Carga de Dimensiones\Dimension Planta\Insert Planta"
-          TopLeft="151,719.5" />
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Union All Output 1]"
-          TopLeft="232.5,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Planta.Paths[OLE DB Source Output]"
           TopLeft="232.5,47.5">
@@ -15654,47 +15883,101 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[OLE DB Command Output]"
-          TopLeft="88.5000000000001,455.5">
+          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Derived Column Output]"
+          TopLeft="232.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="125.166666666667,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="125.166666666667,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5301794453507" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5301794453507"
-                    Point2="0,35.5301794453507"
-                    Point3="4,35.5301794453507" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\Derived Column"
+          TopLeft="17.5000000000001,311.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Historical Attribute Inserts Output]"
+          TopLeft="182.25,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-87.75,60"
+              Start="0,0"
+              End="-87.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="121.166666666667,35.5301794453507" />
+                    End="0,16.503937007874" />
                   <mssgle:CubicBezierSegment
-                    Point1="121.166666666667,35.5301794453507"
-                    Point2="125.166666666667,35.5301794453507"
-                    Point3="125.166666666667,39.5301794453507" />
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="-4,20.503937007874" />
                   <mssgle:LineSegment
-                    End="125.166666666667,52.5" />
+                    End="-83.75,20.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-83.75,20.503937007874"
+                    Point2="-87.75,20.503937007874"
+                    Point3="-87.75,24.503937007874" />
+                  <mssgle:LineSegment
+                    End="-87.75,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-118.93138671875,25.503937007874,150.1127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command"
+          TopLeft="5.50000000000006,413.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Derived Column Output1]"
+          TopLeft="91.5000000000001,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\Union All"
+          TopLeft="172,515.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Planta.Paths[New Output]"
           TopLeft="232.5,251.5">
@@ -15732,83 +16015,75 @@ FROM DBO.Vehiculo as VEHICULO</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Historical Attribute Inserts Output]"
-          TopLeft="182.25,251.5">
+          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[OLE DB Command Output]"
+          TopLeft="88.5000000000001,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-87.75,60"
+              EndConnector="125.166666666667,60"
               Start="0,0"
-              End="-87.75,52.5">
+              End="125.166666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.503937007874" />
+                    End="0,31.5301794453507" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.503937007874"
-                    Point2="0,20.503937007874"
-                    Point3="-4,20.503937007874" />
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
                   <mssgle:LineSegment
-                    End="-83.75,20.503937007874" />
+                    End="121.166666666667,35.5301794453507" />
                   <mssgle:CubicBezierSegment
-                    Point1="-83.75,20.503937007874"
-                    Point2="-87.75,20.503937007874"
-                    Point3="-87.75,24.503937007874" />
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
                   <mssgle:LineSegment
-                    End="-87.75,52.5" />
+                    End="125.166666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-118.93138671875,25.503937007874,150.1127734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\Derived Column 1"
+          TopLeft="151,617.5" />
+        <EdgeLayout
+          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Union All Output 1]"
+          TopLeft="232.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\Insert Destination"
+          TopLeft="151,719.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Derived Column Output2]"
           TopLeft="232.5,659.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-12,60"
-              Start="0,0"
-              End="-12,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-7.99999999999997,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-7.99999999999997,30"
-                    Point2="-12,30"
-                    Point3="-12,34" />
-                  <mssgle:LineSegment
-                    End="-12,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Derived Column Output1]"
-          TopLeft="91.5000000000001,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
               EndConnector="0,60"
               Start="0,0"
               End="0,52.5">
@@ -15822,35 +16097,13 @@ FROM DBO.Vehiculo as VEHICULO</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Derived Column Output]"
-          TopLeft="232.5,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Carga de Dimensiones\Dimension Planta\OLE DB Command 1"
+          TopLeft="294,311.5" />
         <EdgeLayout
           Id="Package\Carga de Dimensiones\Dimension Planta.Paths[Changing Attribute Updates Output]"
           TopLeft="282.75,251.5">
@@ -15925,7 +16178,7 @@ FROM DBO.Vehiculo as VEHICULO</property>
       &lt;IdentificationString&gt;Fuente Planta.Outputs[OLE DB Source Output].Columns[AlmacenKeystone]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;AlmacenKeystone&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Fuente Planta.Outputs[OLE DB Source Output].Columns[Ciudad]&lt;/IdentificationString&gt;
@@ -15991,19 +16244,19 @@ FROM DBO.Vehiculo as VEHICULO</property>
       &lt;IdentificationString&gt;Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_Batch]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;ID_Batch&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Columnas de Linaje.Outputs[Derived Column Output].Columns[ID_SourceSystem]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;ID_SourceSystem&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Fuente Planta.Outputs[OLE DB Source Output].Columns[IDEmpresa]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;IDEmpresa&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Fuente Planta.Outputs[OLE DB Source Output].Columns[IDPlantaReparacion]&lt;/IdentificationString&gt;
@@ -16015,13 +16268,13 @@ FROM DBO.Vehiculo as VEHICULO</property>
       &lt;IdentificationString&gt;Fuente Planta.Outputs[OLE DB Source Output].Columns[IDPredio]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;IDPredio&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Fuente Planta.Outputs[OLE DB Source Output].Columns[LocalizadorCotizacion]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;LocalizadorCotizacion&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Fuente Planta.Outputs[OLE DB Source Output].Columns[NombreContacto]&lt;/IdentificationString&gt;
@@ -16033,7 +16286,7 @@ FROM DBO.Vehiculo as VEHICULO</property>
       &lt;IdentificationString&gt;Fuente Planta.Outputs[OLE DB Source Output].Columns[Pais]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Pais&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Fuente Planta.Outputs[OLE DB Source Output].Columns[TelefonoAlmacen]&lt;/IdentificationString&gt;
@@ -16051,7 +16304,7 @@ FROM DBO.Vehiculo as VEHICULO</property>
       &lt;IdentificationString&gt;Fuente Planta.Outputs[OLE DB Source Output].Columns[TituloTrabajo]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;TituloTrabajo&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Fuente Planta.Outputs[OLE DB Source Output].Columns[UltimaFechaActualizacion]&lt;/IdentificationString&gt;
@@ -16074,7 +16327,7 @@ FROM DBO.Vehiculo as VEHICULO</property>
     &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
     &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
   &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
   &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
   &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
   &lt;CurrentIndicatorColumn /&gt;
@@ -16086,19 +16339,6 @@ FROM DBO.Vehiculo as VEHICULO</property>
   &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga de Dimensiones\Dimension Planta\Insert Planta">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -16521,91 +16761,15 @@ FROM DBO.Vehiculo as VEHICULO</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga de Dimensiones\Dimension Geografia\Dimensión de variación lenta">
+    design-time-name="Package\Carga de Dimensiones\Dimension Planta\Insert Destination">
     <Properties>
       <Property>
-        <Name>SCDMetadata</Name>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{DA7F63C9-091E-4661-9A16-2D5945BE89D2}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[Dimension].[Geografia]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Columnas de Linaje.Salidas[Derived Column Output].Columnas[STRCodigoPostal]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;CodigoPostal&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Columnas de Linaje.Salidas[Derived Column Output].Columnas[ID_Batch]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID_Batch&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[ID_Ciudad]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID_Ciudad&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[ID_Pais]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID_Pais&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[ID_Region]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID_Region&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Columnas de Linaje.Salidas[Derived Column Output].Columnas[ID_SourceSystem]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID_SourceSystem&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[NombreCiudad]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;NombreCiudad&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[NombrePais]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;NombrePais&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Fuente Geografia.Salidas[OLE DB Source Output].Columnas[NombreRegion]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;NombreRegion&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Columna derivada&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Unión de todo&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Columna derivada 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB 1&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn&gt;FechaInicioValidez&lt;/StartDateColumn&gt;
-  &lt;EndDateColumn&gt;FechaFinValidez&lt;/EndDateColumn&gt;
-  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
-  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
