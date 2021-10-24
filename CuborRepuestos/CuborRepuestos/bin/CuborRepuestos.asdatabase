@@ -249,7 +249,7 @@
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
           <Value>
             <dds xmlns="">
-              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2944" scrolltop="-3823" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9684" y="12647" backcolor="16119285" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2944" scrolltop="-3823" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9684" y="12647" backcolor="16119285" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                 <font>
                   <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                 </font>
@@ -260,7 +260,7 @@
               <layoutmanager>
                 <ddsxmlobj />
               </layoutmanager>
-              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="Vehiculo" left="-59" top="556" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3757" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="Vehiculo" left="-59" top="556" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="3757" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobjectstreaminitwrapper binary="000e0000ad0e000088130000" />
                 </control>
@@ -317,35 +317,23 @@
                   </Attributes>
                   <Position x="20" y="20" />
                 </Shape>
+                <Shape Id="Modelo" Expanded="false">
+                  <Attributes>
+                    <Attribute Id="Modelo" />
+                  </Attributes>
+                  <Position x="145" y="20" />
+                </Shape>
                 <Shape Id="Marca" Expanded="false">
                   <Attributes>
                     <Attribute Id="Marca" />
                   </Attributes>
-                  <Position x="145" y="20" />
+                  <Position x="270" y="20" />
                 </Shape>
                 <Shape Id="Anio" Expanded="false">
                   <Attributes>
                     <Attribute Id="Anio" />
                   </Attributes>
-                  <Position x="270" y="20" />
-                </Shape>
-                <Shape Id="Modelo" Expanded="false">
-                  <Attributes>
-                    <Attribute Id="Modelo" />
-                  </Attributes>
                   <Position x="395" y="20" />
-                </Shape>
-                <Shape Id="Sub Modelo" Expanded="false">
-                  <Attributes>
-                    <Attribute Id="Sub Modelo" />
-                  </Attributes>
-                  <Position x="520" y="20" />
-                </Shape>
-                <Shape Id="Estilo" Expanded="false">
-                  <Attributes>
-                    <Attribute Id="Estilo" />
-                  </Attributes>
-                  <Position x="645" y="20" />
                 </Shape>
               </Shapes>
             </DiagramLayout>
@@ -381,8 +369,8 @@
           </KeyColumns>
           <AttributeRelationships>
             <AttributeRelationship>
-              <AttributeID>Marca</AttributeID>
-              <Name>Marca</Name>
+              <AttributeID>Modelo</AttributeID>
+              <Name>Modelo</Name>
             </AttributeRelationship>
           </AttributeRelationships>
           <OrderBy>Key</OrderBy>
@@ -401,7 +389,22 @@
                 <ColumnID>Marca</ColumnID>
               </Source>
             </KeyColumn>
+            <KeyColumn>
+              <DataType>SmallInt</DataType>
+              <Source xsi:type="ColumnBinding">
+                <TableID>Dimension_Vehiculo</TableID>
+                <ColumnID>Anio</ColumnID>
+              </Source>
+            </KeyColumn>
           </KeyColumns>
+          <NameColumn>
+            <DataType>WChar</DataType>
+            <DataSize>100</DataSize>
+            <Source xsi:type="ColumnBinding">
+              <TableID>Dimension_Vehiculo</TableID>
+              <ColumnID>Marca</ColumnID>
+            </Source>
+          </NameColumn>
           <AttributeRelationships>
             <AttributeRelationship>
               <AttributeID>Anio</AttributeID>
@@ -423,12 +426,6 @@
               </Source>
             </KeyColumn>
           </KeyColumns>
-          <AttributeRelationships>
-            <AttributeRelationship>
-              <AttributeID>Modelo</AttributeID>
-              <Name>Modelo</Name>
-            </AttributeRelationship>
-          </AttributeRelationships>
           <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
           <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
         </Attribute>
@@ -444,51 +441,36 @@
                 <ColumnID>Modelo</ColumnID>
               </Source>
             </KeyColumn>
-          </KeyColumns>
-          <AttributeRelationships>
-            <AttributeRelationship>
-              <AttributeID>Sub Modelo</AttributeID>
-              <Name>Sub Modelo</Name>
-            </AttributeRelationship>
-          </AttributeRelationships>
-          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
-          <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
-        </Attribute>
-        <Attribute>
-          <ID>Sub Modelo</ID>
-          <Name>Sub Modelo</Name>
-          <KeyColumns>
             <KeyColumn>
               <DataType>WChar</DataType>
               <DataSize>100</DataSize>
               <Source xsi:type="ColumnBinding">
                 <TableID>Dimension_Vehiculo</TableID>
-                <ColumnID>SubModelo</ColumnID>
+                <ColumnID>Marca</ColumnID>
               </Source>
             </KeyColumn>
-          </KeyColumns>
-          <AttributeRelationships>
-            <AttributeRelationship>
-              <AttributeID>Estilo</AttributeID>
-              <Name>Estilo</Name>
-            </AttributeRelationship>
-          </AttributeRelationships>
-          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
-          <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
-        </Attribute>
-        <Attribute>
-          <ID>Estilo</ID>
-          <Name>Estilo</Name>
-          <KeyColumns>
             <KeyColumn>
-              <DataType>WChar</DataType>
-              <DataSize>300</DataSize>
+              <DataType>SmallInt</DataType>
               <Source xsi:type="ColumnBinding">
                 <TableID>Dimension_Vehiculo</TableID>
-                <ColumnID>Estilo</ColumnID>
+                <ColumnID>Anio</ColumnID>
               </Source>
             </KeyColumn>
           </KeyColumns>
+          <NameColumn>
+            <DataType>WChar</DataType>
+            <DataSize>100</DataSize>
+            <Source xsi:type="ColumnBinding">
+              <TableID>Dimension_Vehiculo</TableID>
+              <ColumnID>Modelo</ColumnID>
+            </Source>
+          </NameColumn>
+          <AttributeRelationships>
+            <AttributeRelationship>
+              <AttributeID>Marca</AttributeID>
+              <Name>Marca</Name>
+            </AttributeRelationship>
+          </AttributeRelationships>
           <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
           <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
         </Attribute>
@@ -509,19 +491,9 @@
               <SourceAttributeID>Anio</SourceAttributeID>
             </Level>
             <Level>
-              <ID>Estilo</ID>
-              <Name>Estilo</Name>
-              <SourceAttributeID>Estilo</SourceAttributeID>
-            </Level>
-            <Level>
               <ID>Modelo</ID>
               <Name>Modelo</Name>
               <SourceAttributeID>Modelo</SourceAttributeID>
-            </Level>
-            <Level>
-              <ID>Sub Modelo</ID>
-              <Name>Sub Modelo</Name>
-              <SourceAttributeID>Sub Modelo</SourceAttributeID>
             </Level>
           </Levels>
         </Hierarchy>
@@ -1024,7 +996,7 @@
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
           <Value>
             <dds xmlns="">
-              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2944" scrolltop="-3823" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9684" y="12647" backcolor="16119285" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2944" scrolltop="-3823" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="9684" y="12647" backcolor="16119285" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                 <font>
                   <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                 </font>
@@ -1035,7 +1007,7 @@
               <layoutmanager>
                 <ddsxmlobj />
               </layoutmanager>
-              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="Geografia" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3757" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+              <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="Geografia" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="3757" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                 <control>
                   <ddsxmlobjectstreaminitwrapper binary="000e0000ad0e000088130000" />
                 </control>
@@ -1347,7 +1319,7 @@
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
           <Value>
             <dds xmlns="">
-              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="44" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-8123" scrolltop="-5000" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="27199" y="12647" backcolor="16119285" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="44" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-8123" scrolltop="5476" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="27199" y="12647" backcolor="16119285" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                 <font>
                   <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                 </font>
@@ -1698,7 +1670,7 @@
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-          <Value>-5000</Value>
+          <Value>5476</Value>
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -1762,12 +1734,6 @@
             </Attribute>
             <Attribute>
               <AttributeID>Modelo</AttributeID>
-            </Attribute>
-            <Attribute>
-              <AttributeID>Sub Modelo</AttributeID>
-            </Attribute>
-            <Attribute>
-              <AttributeID>Estilo</AttributeID>
             </Attribute>
           </Attributes>
           <Hierarchies>
@@ -2324,7 +2290,7 @@ END</Trend>
           <ID>KPI 1</ID>
           <Name>TotalVSPromedio</Name>
           <Value>[Measures].[Total Orden]/[Measures].[Promedio Ventas]</Value>
-          <Goal>1</Goal>
+          <Goal>10000</Goal>
           <Status>CASE  
   WHEN KpiValue("TotalVSPromedio") &gt; KpiGoal("TotalVSPromedio")   
     THEN 1  
@@ -2354,7 +2320,7 @@ END</Trend>
           <ID>KPI 2</ID>
           <Name>CotizacionVSPromedio</Name>
           <Value>[Measures].[Total Cotizacion]/[Measures].[Promedio Cotizacion]</Value>
-          <Goal>3</Goal>
+          <Goal>10000</Goal>
           <Status>CASE  
   WHEN KpiValue("CotizacionVSPromedio") &gt; KpiGoal("CotizacionVSPromedio")   
     THEN 1  
@@ -2384,7 +2350,7 @@ END</Trend>
           <ID>KPI 3</ID>
           <Name>PartesVSPromedio</Name>
           <Value>[Measures].[Total Partes]/[Measures].[Promedio Partes]</Value>
-          <Goal>3</Goal>
+          <Goal>10000</Goal>
           <Status>CASE  
   WHEN KpiValue("PartesVSPromedio") &gt; KpiGoal("PartesVSPromedio")   
     THEN 1  

@@ -2,23 +2,23 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>RepuestosETL</Name>
-    <LastWriteTime>2021-09-27T04:11:49.9444328Z</LastWriteTime>
+    <LastWriteTime>2021-10-20T22:14:48.331552Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>ETLFACTS.dtsx</Name>
-      <LastWriteTime>2021-10-10T04:10:39.6064764Z</LastWriteTime>
+      <LastWriteTime>2021-10-20T22:14:48.3295709Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ETLDimensiones.dtsx</Name>
-      <LastWriteTime>2021-10-10T03:58:09.1730657Z</LastWriteTime>
+      <LastWriteTime>2021-10-20T22:14:48.3275625Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ETLCUBE.dtsx</Name>
-      <LastWriteTime>2021-09-27T04:11:49.7751162Z</LastWriteTime>
+      <LastWriteTime>2021-10-24T21:46:38.4081426Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
