@@ -24,83 +24,13 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 * 2 => Atributo Historico
 
 
-### Fact
+
+### StatusOrden --DEV:PASS
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
-| DateKey                         |     0    |
-| IDCotizacion                    |     0    |
-| status                          |     0    |
-| TipoDocumento                   |     0    |
-| FechaCreacionCotizacion         |     0    |
-| FechaModificacionCotizacion     |     0    |
-| ProcesadoPor                    |     0    |
-| IDAseguradora                   |     0    |
-| AseguradoraSubsidiaria          |     0    |
-| NumeroReclamo                   |     0    |
-| IDPlantaReparacion              |     0    |
-| OrdenRealizada                  |     0    |
-| CotizacionRealizada             |     0    |
-| CotizacionDuplicada             |     0    |
-| procurementFolderID             |     0    |
-| DireccionEntrega1               |     0    |
-| DireccionEntrega2               |     0    |
-| MarcadoEntrega                  |     0    |
-| IDPartner                       |     0    |
-| CodigoPostal                    |     0    |
-| LeidoPorPlantaReparacion        |     0    |
-| LeidoPorPlantaReparacionFecha   |     0    |
-| CotizacionReabierta             |     0    |
-| EsAseguradora                   |     0    |
-| CodigoVerificacion              |     0    |
-| IDClientePlantaReparacion       |     0    |
-| FechaCreacionRegistro           |     0    |
-| IDRecotizacion                  |     0    |
-| PartnerConfirmado               |     0    |
-| WrittenBy                       |     0    |
-| SeguroValidado                  |     0    |
-| FechaCaptura                    |     0    |
-| IDOrden                         |     0    |
-| Ruta                            |     0    |
-| FechaLimiteRuta                 |     0    |
-| TelefonoEntrega                 |     0    |
-| NumLinea                        |     0    |
-| OETipoParte                     |     0    |
-| AltPartNum                      |     0    |
-| AltTipoParte                    |     0    |
-| ciecaTipoParte                  |     0    |
-| partDescripcion                 |     0    |
-| CantidadCotizacionDetalle       |     0    |
-| PrecioListaOnRO                 |     0    |
-| PrecioNetoOnRO                  |     0    |
-| NecesitadoParaFecha             |     0    |
-| VehiculoIDCotizacionDetalle     |     0    |
-| FechaCreacion                   |     0    |
-| FechaModificacion               |     0    |
-| UsuarioCreacion                 |     0    |
-| UsuarioModificacion             |     0    |
-| ID_Batch                        |     0    |
-| ID_SourceSystem                 |     0    |
-| ID_Orden                        |     0    |
-| ID_Cliente                      |     0    |
-| ID_Ciudad                       |     0    |
-| ID_StatusOrden                  |     0    |
-| Total_Orden                     |     0    |
-| Fecha_Orden                     |     0    |
-| NumeroOrden                     |     0    |
-| ID_DetalleOrden                 |     0    |
-| ID_Parte                        |     0    |
-| ID_Descuento                    |     0    |
-| CantidadDetalleOrden            |     0    |
-| VehiculoIDDetalleOrden          |     0    |
-
-
-
-### StatusOrden
-| Atributo                        | Tipo SCD |
-|          -------------          | :------: |
-| ID_Batch                        |     0    |
-| ID_SourceSystem                 |     0    |
-| PrimerNombre                    |     0    |
+| ID_Batch                        |     1    |
+| ID_SourceSystem                 |     1    |
+| PrimerNombre                    |     1    |
 
 ### Clientes
 | Atributo                        | Tipo SCD |
@@ -121,23 +51,22 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 |          -------------          | :------: |
 | VIN_Patron                      |     0    |
 | Anio                            |     0    |
-| Marca                           |     0    |
-| Modelo                          |     0    |
-| SubModelo                       |     0    |
+| Marca                           |     1    |
+| Modelo                          |     1    |
+| SubModelo                       |     1    |
 | Estilo                          |     1    |
 | FechaCreacionVeh                |     0    |
-| ID_Batch                        |     0    |
-| ID_SourceSystem                 |     0    |
+| ID_Batch                        |     1    |
+| ID_SourceSystem                 |     1    |
 
 ### Aseguradora
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
-| IDAseguradora                   |     0    |
 | NombreAseguradora               |     2    |
-| RowCreatedDate                  |     0    |
+| RowCreatedDate                  |     1    |
 | Activa                          |     2    |
-| ID_Batch                        |     0    |
-| ID_SourceSystem                 |     0    |
+| ID_Batch                        |     1    |
+| ID_SourceSystem                 |     1    |
 
 ### Planta  
 | Atributo                        | Tipo SCD |
@@ -171,9 +100,10 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 ### Descuento
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
-| ID_Descuento                    |     0    |
 | NombreDescuento                 |     1    |
 | PorcentajeDescuento             |     1    |
+| ID_Batch                        |     1    |
+| ID_SourceSystem                 |     1    |
 	
 
 ### Geografia
@@ -190,22 +120,21 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 ### Partes
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
-| ID_Parte                        |     0    |
-| NombreParte                     |     0    |
-| DescripcionParte                |     0    |
-| PrecioParte                     |     0    |
-| ID_Categoria                    |     0    |
-| NombreCategoria                 |     0    |
-| DescripcionCategoria            |     0    |
-| ID_Linea                        |     0    |
-| NombreLinea                     |     0    |
-| DescripcionLinea                |     2    |
+| NombreParte                     |     2    |
+| DescripcionParte                |     1    |
+| PrecioParte                     |     2    |
+| ID_Categoria                    |     1    |
+| NombreCategoria                 |     2    |
+| DescripcionCategoria            |     1    |
+| ID_Linea                        |     1    |
+| NombreLinea                     |     2    |
+| DescripcionLinea                |     1    |
 
 ### Origen
 | Atributo                        | Tipo SCD |
 |          -------------          | :------: |
-| Origen                          |     0    |
-| ID_Batch                        |     0    |
-| ID_SourceSystem                 |     0    |
+| Origen                          |     1    |
+| ID_Batch                        |     1    |
+| ID_SourceSystem                 |     1    |
 
 ### Fecha
