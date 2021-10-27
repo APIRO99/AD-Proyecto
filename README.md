@@ -138,3 +138,26 @@ Dimensiones creadas dentro de nuestro DWH con sus respectivas tablas. A la izqui
 | ID_SourceSystem                 |     1    |
 
 ### Fecha
+### Cubo
+El cubo  de tipo Olap utilizado posee los siguientes caracteristicas
+
+* 10 dimensiones 
+
+* 1 Table de hechos
+
+ * Las dimesniones Partes, Geografia y Vehciulo poseen una jerarquia 
+   * Fecha: Anio -> Quarter- > Mes
+   * Geografia:  Ciudad -> Pais -> Region
+   * Vehciulo -> Anio -> Marca -> Modelo
+ 
+* Posee varios Measure Groups:
+   * El promedio de la ventas "Sum{Toatal Orden)" dividido el el numero total de ordenes "Count(ID_Orden)
+   * El total de cotizaciones e calcula por medio de [Measures].[Cantidad Cotizacion Detalle]*[Measures].[Precio Parte] que equivale a la cantidad de partes vendiadas por cotizacion multiplicado por el precio de las mismas
+   * El total de partes, que se optiene por medio de [Measures].[Cantidad Detalle Orden - Orden]*[Measures].[Precio Parte] que represnta el total de partes vendidas en cada orden por el precio de dichas partes 
+   * El promedio de ventas, cotizacion y Partes vendidas, cada promedio se optiene uttilizando los totales mencionados y dividiendolos por el valor total de ordenes y o cotizaciones dadas.
+
+* El cubo tambien posee los siguientes KPI:
+
+  * Prodcutos_Orden, el cual es calculado mediante [Measures].[Cantidad Detalle Orden - Orden]/[Measures].[Orden Count] que representa la cantidad de partes pedidas dividio el numero total de ordenes dandonoes una idea de el promedio de partes por orden este tiene una vlaor esperado de 3 partes por orden promedio
+ 
+  * Existen 3 KPI que representa el promedio de ventas/cotizacion/parte vendidas vs el total de ordenes estos todos son calculados por medio de [Measures].* Total de cada tipo/[Measures].[Promedio *de cada tipo(ventas cotizaciones partes)] 
